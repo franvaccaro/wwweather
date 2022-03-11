@@ -1,0 +1,96 @@
+.searchBar {
+    position: absolute;
+    width: 1920px;
+    height: 120px;
+    left: 0px;
+    background: #1A1617;
+    opacity: 0.8;
+  }
+  
+  .appTitle {
+    position: absolute;
+    width: 184px;
+    height: 28px;
+    left: 253px;
+    top: 46px;
+    font-family: 'Product Sans', sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 36px;
+    line-height: 44px;
+    display: flex;
+    align-items: center;
+    color: #FFA900;
+  }
+  
+  .locationIcon {
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    left: 627px;
+    top: 44px;
+  }
+  
+  .locationText {
+    position: absolute;
+    width: 256px;
+    height: 19px;
+    left: 667px;
+    top: 50px;
+    font-family: 'Product Sans', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    color: #FFFFFF;
+  }
+  
+  .inputField {
+    position: absolute;
+    width: 554px;
+    height: 64px;
+    left: 1113px;
+    top: 25px;
+    background: #525B6D;
+    border-radius: 40px;
+    border: solid 0.5px;
+    border-color: #1A1617;
+    font-family: 'Product Sans', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    color: #FFFFFF;
+    padding-left: 30px;
+  }
+  
+  .searchButton {
+    position: absolute;
+    width: 63px;
+    height: 63px;
+    right: 254px;
+    top: 25px;
+    background: #FFA900;
+    border: 2px solid #39383B;
+    box-sizing: border-box;
+    border-radius: 40px;
+  }
+  
+  .btnContainer {
+    position: absolute;
+    width: 64px;
+    height: 64px;
+    right: 253px;
+    top: 30px;
+    background: #FFA900;
+    border: 2px solid #39383B;
+    box-sizing: border-box;
+    border-radius: 40px;
+  }
+  
+  .searchIcon {
+    width: 24px;
+    height: 24px;
+    left: 1623px;
+    top: 50px;
+  }

@@ -1,0 +1,159 @@
+.cardContainer {
+    position: absolute;
+    width: 1414px;
+    height: 323px;
+    left: 253px;
+    top: 439px;
+}
+
+.Card {
+    width: 1414px;
+    height: 323px;
+    left: 253px;
+    top: 439px;    
+    background: rgba(13, 34, 45, 0.1);
+    backdrop-filter: blur(50px);
+    border-radius: 20px;
+}
+
+/* First Item  */
+
+.cityTitle {
+    font-family: 'Product Sans', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 27px;
+    color: #FFFFFF;
+}
+
+.dayInfo {
+    font-family: 'Product Sans', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 22px;
+    color: #B5B5B5;
+}
+
+.temperature {
+    font-family: 'Product Sans', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 120px;
+    line-height: 200px;
+    color: #FFFFFF;   
+}
+
+.main-icon {
+    width: 40px;
+    height: 40px;
+    left: 559px;
+    top: 602px;
+    line-height: 172px;
+}
+
+.main-weather-info {
+    font-family: 'Product Sans', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    color: #B5B5B5;
+}
+
+/* Second Item  */
+
+.details-title {
+    font-family: 'Product Sans', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    color: #FFFFFF;
+}
+
+.details-container {
+    background: #1A1617;
+    opacity: 0.9;
+    border-radius: 12px;
+    padding-top: 13px;
+    padding-bottom: 13px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.details-subtitle {
+    color: #FFA900;
+    font-family: 'Product Sans', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+}
+
+.details-info {
+    width: 30px;
+    height: 21px;
+    left: 28px;
+    top: 38px;
+    font-family: 'Product Sans', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    color: #B5B5B5;
+}
+
+/* Third Item  */
+
+.forecast-container {
+    background: #1A1617;
+    border-radius: 16px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.forecast-day {
+    font-family: 'Product Sans', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    color: #FFA900;
+}
+
+.forecast-maxTemp {
+    font-family: 'Product Sans', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 17px;
+    color: #FFFFFF;
+}
+
+.forecast-minTemp {
+    font-family: 'Product Sans', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    color: #B5B5B5;
+}
+
+.forecast-weatherIcon {
+    width: 40px;
+    height: 40px;
+    left: 559px;
+    top: 602px;
+}
+
+.forecast-precipitationIcon {
+    width: 12px;
+    height: 12px;
+    left: 17px;
+    top: 136px;
+}
+
+.forecast-precipitation {
+    font-family: 'Product Sans', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    color: #B5B5B5;
+}
