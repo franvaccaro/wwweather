@@ -17,7 +17,6 @@
     font-style: normal;
     font-weight: bold;
     font-size: 36px;
-    line-height: 44px;
     display: flex;
     align-items: center;
     color: #FFA900;
@@ -37,7 +36,6 @@
     height: 19px;
     left: 667px;
     top: 50px;
-    font-family: 'Product Sans', sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
@@ -55,13 +53,11 @@
     border-radius: 40px;
     border: solid 0.5px;
     border-color: #1A1617;
-    font-family: 'Product Sans', sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
-    line-height: 19px;
     color: #FFFFFF;
-    padding-left: 30px;
+    padding-left: 35px;
   }
   
   .searchButton {
@@ -93,4 +89,11 @@
     height: 24px;
     left: 1623px;
     top: 50px;
+  }
+
+  ::placeholder {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    color: #cccbcb;
   }

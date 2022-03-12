@@ -19,29 +19,23 @@
 /* First Item  */
 
 .cityTitle {
-    font-family: 'Product Sans', sans-serif;
     font-style: normal;
     font-weight: 700;
     font-size: 22px;
-    line-height: 27px;
     color: #FFFFFF;
 }
 
 .dayInfo {
-    font-family: 'Product Sans', sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: 18px;
-    line-height: 22px;
     color: #B5B5B5;
 }
 
-.temperature {
-    font-family: 'Product Sans', sans-serif;
+.temperature {    
     font-style: normal;
     font-weight: 700;
     font-size: 120px;
-    line-height: 200px;
     color: #FFFFFF;   
 }
 
@@ -50,11 +44,9 @@
     height: 40px;
     left: 559px;
     top: 602px;
-    line-height: 172px;
 }
 
-.main-weather-info {
-    font-family: 'Product Sans', sans-serif;
+.main-weather-info {    
     font-style: normal;
     font-weight: 400;
     font-size: 18px;
@@ -63,8 +55,7 @@
 
 /* Second Item  */
 
-.details-title {
-    font-family: 'Product Sans', sans-serif;
+.details-title {    
     font-style: normal;
     font-weight: 400;
     font-size: 18px;
@@ -73,7 +64,6 @@
 
 .details-container {
     background: #1A1617;
-    opacity: 0.9;
     border-radius: 12px;
     padding-top: 13px;
     padding-bottom: 13px;
@@ -82,8 +72,7 @@
 }
 
 .details-subtitle {
-    color: #FFA900;
-    font-family: 'Product Sans', sans-serif;
+    color: #FFA900;    
     font-style: normal;
     font-weight: 400;
     font-size: 15px;
@@ -93,8 +82,7 @@
     width: 30px;
     height: 21px;
     left: 28px;
-    top: 38px;
-    font-family: 'Product Sans', sans-serif;
+    top: 38px;    
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
@@ -112,24 +100,21 @@
     padding-right: 10px;
 }
 
-.forecast-day {
-    font-family: 'Product Sans', sans-serif;
+.forecast-day {    
     font-style: normal;
     font-weight: 400;
     font-size: 15px;
     color: #FFA900;
 }
 
-.forecast-maxTemp {
-    font-family: 'Product Sans', sans-serif;
+.forecast-maxTemp {    
     font-style: normal;
     font-weight: 400;
     font-size: 17px;
     color: #FFFFFF;
 }
 
-.forecast-minTemp {
-    font-family: 'Product Sans', sans-serif;
+.forecast-minTemp {    
     font-style: normal;
     font-weight: 400;
     font-size: 13px;
@@ -150,8 +135,7 @@
     top: 136px;
 }
 
-.forecast-precipitation {
-    font-family: 'Product Sans', sans-serif;
+.forecast-precipitation {    
     font-style: normal;
     font-weight: 400;
     font-size: 13px;

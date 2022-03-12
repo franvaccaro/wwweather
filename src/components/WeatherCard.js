@@ -10,12 +10,12 @@ function WeatherCard() {
             <Grid className='Card'>
                 <Container sx={{ p: '35px' }}>
                     <Grid container justifyContent="space-between" direction='row' alignItems="center">
-                        <Grid item alignSelf='center' sx={{ width: '336px' }}>
+                        <Grid item alignSelf='flex-start' sx={{ width: '336px' }}>
                             <Typography variant='h5' className='cityTitle'>Buenos Aires, Argentina</Typography>
-                            <Grid className='dayInfo'>15:43 - Wednesday, 9 March 2022</Grid>
-                            <Grid container direction="row" justifyContent="flex-start" alignItems="center" spacing={3}>
+                            <Grid className='dayInfo' sx={{ mt: '5px' }}>15:43 - Wednesday, 9 March 2022</Grid>
+                            <Grid container direction="row" justifyContent="space-between" alignItems="center" >
                                 <Grid item className='temperature'>26°</Grid>
-                                <Grid item>
+                                <Grid item xs={5}>
                                     <img src={sunny} className='main-icon' alt='weather-icon'></img>
                                     <Typography className='main-weather-info'>Mostly Sunny</Typography>
                                     <Typography className='main-weather-info'>H: 29° • L: 15°</Typography>
@@ -24,7 +24,7 @@ function WeatherCard() {
                         </Grid>
                         <Grid item alignSelf='flex-start' sx={{ width: '336px' }}>
                             <Typography variant='h6' className='details-title'>Details</Typography>
-                            <Grid container direction="row" justifyContent="space-between" alignItems="center" sx={{ mt: '10px' }}>
+                            <Grid container direction="row" justifyContent="space-between" alignItems="center" sx={{ mt: '40px' }}>
                                 <Grid item xs={5.7} className='details-container'>
                                     <Typography variant='p' className='details-subtitle'>Cloudy</Typography>
                                     <br />
@@ -49,7 +49,7 @@ function WeatherCard() {
                         </Grid>
                         <Grid item alignSelf='flex-start' sx={{ width: '336px' }}>
                             <Typography variant='h6' className='details-title'>Next Forecast</Typography>
-                            <Grid container direction="row" justifyContent="space-between" alignItems="center" sx={{ mt: '10px', textAlign: 'center' }}>
+                            <Grid container direction="row" justifyContent="space-between" alignItems="center" sx={{ mt: '40px', textAlign: 'center' }}>
                                 <Grid item xs={2.5} className='forecast-container'>
                                     <Typography variant='p' className='forecast-day'>Thu 10 </Typography>
                                     <br />

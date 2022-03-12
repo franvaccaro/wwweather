@@ -6,4 +6,10 @@
 body {
   background: url('./assets/bg-images/BuenosAires.jpg');
   background-size: cover;
+  background-repeat: no-repeat;
+  font-family: 'Product Sans', sans-serif;
+}
+
+input:focus {
+    outline: none;
 }
