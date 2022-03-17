@@ -8,7 +8,7 @@ function SearchForm() {
 
     <div className='searchBar'>
       <div className='appTitle'>wwweather</div>
-      <img src={location} className='locationIcon' alt='location-icon'></img>
+      <img src={location} title='Location' className='locationIcon' alt='location-icon'></img>
       <div className='locationText'>Buenos Aires, Argentina</div>
       <form>
         <div className='inputContainer'>

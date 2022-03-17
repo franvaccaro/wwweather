@@ -17,7 +17,7 @@ function WeatherCard() {
                     <Grid container justifyContent="space-between" direction='row' alignItems="center">
                         <CityData apiData={apiData} />
                         <CardDetails current={apiData.current} />
-                        <CardForecast />
+                        <CardForecast daily={apiData.daily} />
                     </Grid>
                 </Container>
             </Grid>
