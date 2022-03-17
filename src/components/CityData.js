@@ -5,13 +5,13 @@ import sunny from '../assets/Sunny_ColorOn.svg'
 
 function CityData(props) {
     const timeStamp = Date.now();
-    // const date = new Date(timeStamp).toLocaleDateString("spa-ES")
-    const time = new Date(timeStamp).toLocaleTimeString("en-US")
+    const date = new Date(timeStamp).toLocaleDateString("en-GB", { weekday: 'short', year: 'numeric', month: 'long', day: 'numeric' })
+    const time = new Date(timeStamp).toLocaleTimeString("en-US", { hour: '2-digit', minute: '2-digit', seconds: '2-digit', })
 
     return (
         <Grid item alignSelf='flex-start' sx={{ width: '336px' }}>
             <Typography variant='h5' className='cityTitle'>Buenos Aires, Argentina</Typography>
-            <Grid className='dayInfo' sx={{ mt: '5px' }}>{time.slice(0, 4).concat(time.slice(7))} - Wednesday, 9 March 2022</Grid>
+            <Grid className='dayInfo' sx={{ mt: '5px' }}>{time} • {date}</Grid>
             <Grid container direction="row" justifyContent="space-between" alignItems="center" >
                 <Grid item className='temperature'>{Math.round(props.apiData.current.temp)}°</Grid>
                 <Grid item xs={5}>
