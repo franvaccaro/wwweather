@@ -1,12 +1,24 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './styles/WeatherCard.css';
 import { Grid, Typography } from '@mui/material';
 import sunny from '../assets/Sunny_ColorOn.svg'
 
 function CityData(props) {
-    const timeStamp = Date.now();
-    const date = new Date(timeStamp).toLocaleDateString("en-GB", { weekday: 'short', year: 'numeric', month: 'long', day: 'numeric' })
-    const time = new Date(timeStamp).toLocaleTimeString("en-US", { hour: '2-digit', minute: '2-digit', seconds: '2-digit', })
+
+    const [date, setDate] = useState('')
+    const [time, setTime] = useState('')
+
+    const getDate = () => {
+        const timeStamp = Date.now();
+        setDate(new Date(timeStamp).toLocaleDateString("en-GB", { weekday: 'short', year: 'numeric', month: 'long', day: 'numeric' }))
+        setTime(new Date(timeStamp).toLocaleTimeString("en-US", { hour: '2-digit', minute: '2-digit', seconds: '2-digit', }))
+    }
+
+    useEffect(() => {
+        setInterval(() => {
+            getDate()
+        }, 1000);
+    }, []);
 
     return (
         <Grid item alignSelf='flex-start' sx={{ width: '336px' }}>

@@ -10,7 +10,6 @@ function CardForecast(props) {
     const dayTwo = new Date(props.daily[2].dt * 1000).toLocaleDateString("en-GB", { weekday: 'short', day: 'numeric' })
     const dayThree = new Date(props.daily[3].dt * 1000).toLocaleDateString("en-GB", { weekday: 'short', day: 'numeric' })
     const dayFour = new Date(props.daily[4].dt * 1000).toLocaleDateString("en-GB", { weekday: 'short', day: 'numeric' })
-    console.log(navigator.geolocation)
 
     return (
         <Grid item alignSelf='flex-start' sx={{ width: '336px' }}>
