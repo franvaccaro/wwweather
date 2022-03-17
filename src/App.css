@@ -4,7 +4,6 @@
 } */
 
 body {
-  background: url('./assets/bg-images/London2.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   font-family: 'Product Sans', sans-serif;
@@ -13,3 +12,16 @@ body {
 input:focus {
     outline: none;
 }
+
+.day {
+  background: url('./assets/bg-images/bg_day.svg');
+}
+
+.sunset {
+  background: url('./assets/bg-images/bg_sunset.svg');
+}
+
+.night {
+  background: url('./assets/bg-images/bg_night.svg');
+}
+

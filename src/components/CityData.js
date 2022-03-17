@@ -14,9 +14,21 @@ function CityData(props) {
         setTime(new Date(timeStamp).toLocaleTimeString("en-US", { hour: '2-digit', minute: '2-digit', seconds: '2-digit', }))
     }
 
+    const setBackground = () => {
+        var currentTime = new Date().getHours();
+        if (currentTime >= 6 && currentTime < 17) {
+            document.body.className = "day"
+        } else if (currentTime >= 17 && currentTime < 20) {
+            document.body.className = "sunset"
+        } else if (currentTime >= 20 && currentTime < 6) {
+            document.body.className = "night"
+        }
+    }
+
     useEffect(() => {
         setInterval(() => {
             getDate()
+            setBackground()
         }, 1000);
     }, []);
 
