@@ -16,7 +16,7 @@ function CardForecast(props) {
     return (
         <Grid item alignSelf='flex-start' sx={{ width: '336px' }}>
             <Typography variant='h6' className='details-title'>Next Forecast</Typography>
-            <Grid container direction="row" justifyContent="space-between" alignItems="center" sx={{ mt: '40px', textAlign: 'center' }}>
+            <Grid container direction="row" justifyContent="space-between" alignItems="flex-end" sx={{ mt: '40px', textAlign: 'center' }}>
                 <ForecastDayOne daily={props.daily} dayOne={dayOne} />
                 <ForecastDayTwo daily={props.daily} dayTwo={dayTwo} />
                 <ForecastDayThree daily={props.daily} dayThree={dayThree} />
