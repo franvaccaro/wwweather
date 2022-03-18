@@ -4,7 +4,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { CssBaseline } from '@mui/material';
 import SearchForm from './components/SearchForm';
 import WeatherCard from './components/WeatherCard';
-import Loader from './components/Loaders/Loader.js'
+import Loader from './components/loaders/Loader.js'
 import { useDispatch, useSelector } from 'react-redux';
 import { getWeather } from './redux/actions/getWeatherAction';
 

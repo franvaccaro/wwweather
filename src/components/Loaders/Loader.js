@@ -8,7 +8,7 @@ function Loader() {
             justifyContent="center"
             alignItems="center"
             minHeight="100vh">
-            <CircularProgress color="secondary" />
+            <CircularProgress color="warning" />
         </Box>
     )
 }

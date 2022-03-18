@@ -28,31 +28,34 @@ function CityData(props) {
     const [iconTitle, setIconTitle] = useState('')
 
     const checkWeatherIcon = () => {
-        if (weatherInfo == 'Clear' && document.body.className == "day") {
+        if (weatherInfo === 'Clear' && document.body.className === "day") {
             setWeatherIcon(sunny)
             setIconTitle('Clear Day')
-        } else if (weatherInfo == 'Clear' && document.body.className == "night") {
+        } else if (weatherInfo === 'Clear' && document.body.className === "sunset") {
+            setWeatherIcon(sunny)
+            setIconTitle('Clear Day')
+        } else if (weatherInfo === 'Clear' && document.body.className === "night") {
             setWeatherIcon(clearNight)
             setIconTitle('Clear Night')
-        } else if (weatherDescription.includes('broken') && document.body.className == "day") {
+        } else if (weatherDescription.includes('broken') && document.body.className === "day") {
             setWeatherIcon(partlyCloudy)
             setIconTitle('Partly Cloudy')
-        } else if (weatherDescription.includes('broken') && document.body.className == "sunset") {
+        } else if (weatherDescription.includes('broken') && document.body.className === "sunset") {
             setWeatherIcon(partlyCloudy)
             setIconTitle('Partly Cloudy')
-        } else if (weatherDescription.includes('broken') && document.body.className == "night") {
+        } else if (weatherDescription.includes('broken') && document.body.className === "night") {
             setWeatherIcon(partlyCloudyNight)
             setIconTitle('Partly Cloudy')
-        } else if (weatherInfo == 'Clouds' && !weatherDescription.includes('broken')) {
+        } else if (weatherInfo === 'Clouds' && !weatherDescription.includes('broken')) {
             setWeatherIcon(cloudy)
             setIconTitle('Cloudy')
         } else if (weatherDescription.includes('storm')) {
             setWeatherIcon(rainThunder)
             setIconTitle('Electric Storm')
-        } else if (weatherInfo == 'Rain') {
+        } else if (weatherInfo === 'Rain') {
             setWeatherIcon(rain)
             setIconTitle('Rain')
-        } else if (weatherInfo == 'Snow') {
+        } else if (weatherInfo === 'Snow') {
             setWeatherIcon(snow)
             setIconTitle('Snow')
         }
