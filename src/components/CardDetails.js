@@ -7,7 +7,7 @@ function CardDetails(props) {
         <Grid item alignSelf='flex-start' sx={{ width: '336px' }}>
             <Typography variant='h6' className='details-title'>Details</Typography>
             <Grid container direction="row" justifyContent="space-between" alignItems="center" sx={{ mt: '40px' }}>
-                <Grid item xs={5.7}>
+                <Grid item xs={5.6}>
                     <Stack direction='column' spacing={2.5}>
                         <Grid item xs={12} className='details-container'>
                             <Stack direction='column'>
@@ -23,7 +23,7 @@ function CardDetails(props) {
                         </Grid>
                     </Stack>
                 </Grid>
-                <Grid item xs={5.7}>
+                <Grid item xs={5.6}>
                     <Stack direction='column' spacing={2.5}>
                         <Grid item xs={12} className='details-container'>
                             <Stack direction='column'>

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './styles/WeatherCard.css';
 import { Grid, Typography } from '@mui/material';
+import Skeleton from '@mui/material/Skeleton';
 import sunny from '../assets/weather-icons/icon_sunny.svg'
 import clearNight from '../assets/weather-icons/icon_clear.svg'
 import partlyCloudy from '../assets/weather-icons/icon_partlycloudy.svg'
@@ -33,20 +34,29 @@ function CityData(props) {
             setIconTitle('Clear Day')
         } else if (weatherInfo === 'Clear' && document.body.className === "sunset") {
             setWeatherIcon(sunny)
-            setIconTitle('Clear Day')
+            setIconTitle('Clear Sunset')
         } else if (weatherInfo === 'Clear' && document.body.className === "night") {
             setWeatherIcon(clearNight)
             setIconTitle('Clear Night')
         } else if (weatherDescription.includes('broken') && document.body.className === "day") {
             setWeatherIcon(partlyCloudy)
             setIconTitle('Partly Cloudy')
+        } else if (weatherDescription.includes('few') && document.body.className === "day") {
+            setWeatherIcon(partlyCloudy)
+            setIconTitle('Partly Cloudy')
         } else if (weatherDescription.includes('broken') && document.body.className === "sunset") {
+            setWeatherIcon(partlyCloudy)
+            setIconTitle('Partly Cloudy')
+        } else if (weatherDescription.includes('few') && document.body.className === "sunset") {
             setWeatherIcon(partlyCloudy)
             setIconTitle('Partly Cloudy')
         } else if (weatherDescription.includes('broken') && document.body.className === "night") {
             setWeatherIcon(partlyCloudyNight)
             setIconTitle('Partly Cloudy')
-        } else if (weatherInfo === 'Clouds' && !weatherDescription.includes('broken')) {
+        } else if (weatherDescription.includes('few') && document.body.className === "night") {
+            setWeatherIcon(partlyCloudyNight)
+            setIconTitle('Partly Cloudy')
+        } else if (weatherInfo === 'Clouds' && !weatherDescription.includes('broken', 'few')) {
             setWeatherIcon(cloudy)
             setIconTitle('Cloudy')
         } else if (weatherDescription.includes('storm')) {
@@ -85,15 +95,21 @@ function CityData(props) {
     return (
         <Grid item alignSelf='flex-start' sx={{ width: '336px' }}>
             <Typography variant='h5' className='cityTitle'>Buenos Aires, Argentina</Typography>
-            <Grid className='dayInfo' sx={{ mt: '5px' }}>
-                {time} • {date}
-            </Grid>
+            {date ? <Grid className='dayInfo' sx={{ mt: '5px' }}> {time} • {date}  </Grid> :
+                <Typography variant='h5'>
+                    <Skeleton animation="wave" width={255} sx={{ bgcolor: 'grey.900' }} />
+                </Typography>}
             <Grid container direction="row" justifyContent="space-between" alignItems="center" >
                 <Grid item className='temperature'>
                     {Math.round(props.apiData.current.temp)}°
                 </Grid>
                 <Grid item xs={5}>
-                    <img src={weatherIcon} title={iconTitle} className='main-icon'></img>
+                    {weatherIcon ? <img src={weatherIcon} title={iconTitle} alt='Weather icon' className='main-icon' /> :
+                        <Skeleton variant="circular"
+                            animation="wave"
+                            width={40}
+                            height={40}
+                            sx={{ mb: 1, bgcolor: 'grey.900' }} />}
                     <Typography className='main-weather-info'>
                         {weatherInfo}
                     </Typography>

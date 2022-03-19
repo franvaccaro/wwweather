@@ -10,6 +10,11 @@ import { getWeather } from './redux/actions/getWeatherAction';
 
 function App() {
   const theme = createTheme({
+    palette: {
+      background: {
+        default: '#121212',
+      }
+    }
   });
 
   const dispatch = useDispatch();
@@ -17,7 +22,7 @@ function App() {
 
   useEffect(() => {
     dispatch(getWeather());
-  }, []);
+  }, [dispatch]);
 
   return (
     <ThemeProvider theme={theme}>

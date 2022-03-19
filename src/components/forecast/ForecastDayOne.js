@@ -24,6 +24,9 @@ function ForecastDayOne(props) {
         } else if (weatherDescription.includes('broken')) {
             setWeatherIcon(partlyCloudy)
             setIconTitle('Partly Cloudy')
+        } else if (weatherDescription.includes('few')) {
+            setWeatherIcon(partlyCloudy)
+            setIconTitle('Partly Cloudy')
         } else if (weatherInfo === 'Clouds' && !weatherDescription.includes('broken')) {
             setWeatherIcon(cloudy)
             setIconTitle('Cloudy')
@@ -49,11 +52,11 @@ function ForecastDayOne(props) {
                 <Typography variant='p' className='forecast-day'>{props.dayOne}</Typography>
                 <Typography variant='p' className='forecast-maxTemp'>{Math.round(props.daily[1].temp.max)}°</Typography>
                 <Typography variant='p' className='forecast-minTemp'>{Math.round(props.daily[1].temp.min)}°</Typography>
-                <img src={weatherIcon} title={iconTitle} className='forecast-weatherIcon' alt='weather-icon'></img>
+                <img src={weatherIcon} title={iconTitle} className='forecast-weatherIcon' alt='weather-icon' />
                 <Stack direction='row' spacing={1} alignItems='center' justifyContent='center'>
-                    <img src={precipitation} title='Precipitation' className='forecast-precipitationIcon' alt='precipitation-icon'></img>
+                    <img src={precipitation} title='Precipitation' className='forecast-precipitationIcon' alt='precipitation-icon' />
                     <Typography variant='p' className='forecast-precipitation'>
-                        {props.daily[1].rain ? Math.round(props.daily[1].rain) : '0'}°
+                        {props.daily[1].rain ? Math.round(props.daily[1].rain) : '0'}%
                     </Typography>
                 </Stack>
             </Stack>

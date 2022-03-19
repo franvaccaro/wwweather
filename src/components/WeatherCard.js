@@ -11,17 +11,21 @@ function WeatherCard() {
     const apiData = useSelector(state => state.weatherArr.apiData);
 
     return (
-        <Grid className='cardContainer'>
-            <Grid className='Card'>
-                <Container sx={{ p: '35px' }}>
-                    <Grid container justifyContent="space-between" direction='row' alignItems="center">
-                        <CityData apiData={apiData} />
-                        <CardDetails current={apiData.current} />
-                        <CardForecast daily={apiData.daily} />
+        <Container>
+            <Grid container direction="column" justifyContent="center">
+                <Grid className='cardContainer'>
+                    <Grid item className='Card'>
+                        <Container sx={{ p: '50px' }}>
+                            <Grid container justifyContent="space-between" direction='row' alignItems="center">
+                                <CityData apiData={apiData} />
+                                <CardDetails current={apiData.current} />
+                                <CardForecast daily={apiData.daily} />
+                            </Grid>
+                        </Container>
                     </Grid>
-                </Container>
+                </Grid>
             </Grid>
-        </Grid>
+        </Container>
     )
 };
 
