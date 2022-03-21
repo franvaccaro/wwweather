@@ -87,7 +87,7 @@ function CityData(props) {
     }
 
     const setBackground = () => {
-        let currentTime = 16;
+        let currentTime = new Date().getHours();
         if (currentTime >= 0 && currentTime < 6) {
             document.body.className = "night"
         } if (currentTime >= 6 && currentTime < 12) {
