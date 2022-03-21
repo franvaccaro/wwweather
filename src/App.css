@@ -13,15 +13,26 @@ input:focus {
     outline: none;
 }
 
+.morning {
+  background: url('./assets/bg-images/01-Morning.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
 .day {
-  background: url('./assets/bg-images/bg_day.svg');
+  background: url('./assets/bg-images/02-Day.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .sunset {
-  background: url('./assets/bg-images/bg_sunset.svg');
+  background: url('./assets/bg-images/03-Sunset.jpg');
+  background-size: cover;
 }
 
 .night {
-  background: url('./assets/bg-images/bg_night.svg');
+  background: url('./assets/bg-images/04-Night.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 

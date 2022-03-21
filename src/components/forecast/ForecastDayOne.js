@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import '../styles/WeatherCard.css';
 import { Grid, Stack, Typography } from '@mui/material';
+import Skeleton from '@mui/material/Skeleton';
 import precipitation from '../../assets/Precipitacion.svg'
 import sunny from '../../assets/weather-icons/icon_sunny.svg'
 import partlyCloudy from '../../assets/weather-icons/icon_partlycloudy.svg'
 import cloudy from '../../assets/weather-icons/icon_cloudy.svg'
 import rainThunder from '../../assets/weather-icons/icon_rain_thunderstorm.svg'
 import rain from '../../assets/weather-icons/icon_drizzle.svg'
+import littleRain from '../../assets/weather-icons/icon_rain.svg'
 import snow from '../../assets/weather-icons/icon_blizzard.svg'
 
 
@@ -33,9 +35,16 @@ function ForecastDayOne(props) {
         } else if (weatherDescription.includes('storm')) {
             setWeatherIcon(rainThunder)
             setIconTitle('Electric Storm')
-        } else if (weatherInfo === 'Rain') {
+        } else if (weatherInfo === 'Rain' && !weatherDescription.includes('light')
+            && !weatherDescription.includes('moderate')) {
             setWeatherIcon(rain)
             setIconTitle('Rain')
+        } else if (weatherDescription.includes('light rain')) {
+            setWeatherIcon(littleRain)
+            setIconTitle('Light Rain')
+        } else if (weatherDescription.includes('moderate rain')) {
+            setWeatherIcon(littleRain)
+            setIconTitle('Moderate Rain')
         } else if (weatherInfo === 'Snow') {
             setWeatherIcon(snow)
             setIconTitle('Snow')
@@ -52,7 +61,12 @@ function ForecastDayOne(props) {
                 <Typography variant='p' className='forecast-day'>{props.dayOne}</Typography>
                 <Typography variant='p' className='forecast-maxTemp'>{Math.round(props.daily[1].temp.max)}°</Typography>
                 <Typography variant='p' className='forecast-minTemp'>{Math.round(props.daily[1].temp.min)}°</Typography>
-                <img src={weatherIcon} title={iconTitle} className='forecast-weatherIcon' alt='weather-icon' />
+                {weatherIcon ? <img src={weatherIcon} title={iconTitle} className='forecast-weatherIcon' alt='weather-icon' /> :
+                    <Skeleton variant="circular"
+                        animation="wave"
+                        width={40}
+                        height={40}
+                        sx={{ mb: 1, bgcolor: 'grey.900' }} />}
                 <Stack direction='row' spacing={1} alignItems='center' justifyContent='center'>
                     <img src={precipitation} title='Precipitation' className='forecast-precipitationIcon' alt='precipitation-icon' />
                     <Typography variant='p' className='forecast-precipitation'>

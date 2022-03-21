@@ -9,6 +9,7 @@ import partlyCloudyNight from '../assets/weather-icons/icon_partlycloudy-night.s
 import cloudy from '../assets/weather-icons/icon_cloudy.svg'
 import rain from '../assets/weather-icons/icon_drizzle.svg'
 import rainThunder from '../assets/weather-icons/icon_rain_thunderstorm.svg'
+import lightRain from '../assets/weather-icons/icon_rain.svg'
 import snow from '../assets/weather-icons/icon_blizzard.svg'
 
 
@@ -29,7 +30,10 @@ function CityData(props) {
     const [iconTitle, setIconTitle] = useState('')
 
     const checkWeatherIcon = () => {
-        if (weatherInfo === 'Clear' && document.body.className === "day") {
+        if (weatherInfo === 'Clear' && document.body.className === "morning") {
+            setWeatherIcon(sunny)
+            setIconTitle('Clear Morning')
+        } else if (weatherInfo === 'Clear' && document.body.className === "day") {
             setWeatherIcon(sunny)
             setIconTitle('Clear Day')
         } else if (weatherInfo === 'Clear' && document.body.className === "sunset") {
@@ -38,6 +42,9 @@ function CityData(props) {
         } else if (weatherInfo === 'Clear' && document.body.className === "night") {
             setWeatherIcon(clearNight)
             setIconTitle('Clear Night')
+        } else if (weatherDescription.includes('broken') && document.body.className === "morning") {
+            setWeatherIcon(partlyCloudy)
+            setIconTitle('Partly Cloudy')
         } else if (weatherDescription.includes('broken') && document.body.className === "day") {
             setWeatherIcon(partlyCloudy)
             setIconTitle('Partly Cloudy')
@@ -56,15 +63,23 @@ function CityData(props) {
         } else if (weatherDescription.includes('few') && document.body.className === "night") {
             setWeatherIcon(partlyCloudyNight)
             setIconTitle('Partly Cloudy')
-        } else if (weatherInfo === 'Clouds' && !weatherDescription.includes('broken', 'few')) {
+        } else if (weatherInfo === 'Clouds' && !weatherDescription.includes('broken')
+            && !weatherDescription.includes('few')) {
             setWeatherIcon(cloudy)
             setIconTitle('Cloudy')
         } else if (weatherDescription.includes('storm')) {
             setWeatherIcon(rainThunder)
             setIconTitle('Electric Storm')
-        } else if (weatherInfo === 'Rain') {
+        } else if (weatherInfo === 'Rain' && !weatherDescription.includes('light')
+            && !weatherDescription.includes('moderate')) {
             setWeatherIcon(rain)
             setIconTitle('Rain')
+        } else if (weatherDescription.includes('light rain')) {
+            setWeatherIcon(lightRain)
+            setIconTitle('Light Rain')
+        } else if (weatherDescription.includes('moderate rain')) {
+            setWeatherIcon(lightRain)
+            setIconTitle('Moderate Rain')
         } else if (weatherInfo === 'Snow') {
             setWeatherIcon(snow)
             setIconTitle('Snow')
@@ -75,7 +90,9 @@ function CityData(props) {
         let currentTime = new Date().getHours();
         if (currentTime >= 0 && currentTime < 6) {
             document.body.className = "night"
-        } if (currentTime >= 6 && currentTime < 17) {
+        } if (currentTime >= 6 && currentTime < 12) {
+            document.body.className = "morning"
+        } if (currentTime >= 12 && currentTime < 17) {
             document.body.className = "day"
         } if (currentTime >= 17 && currentTime < 20) {
             document.body.className = "sunset"
@@ -97,7 +114,7 @@ function CityData(props) {
             <Typography variant='h5' className='cityTitle'>Buenos Aires, Argentina</Typography>
             {date ? <Grid className='dayInfo' sx={{ mt: '5px' }}> {time} • {date}  </Grid> :
                 <Typography variant='h5'>
-                    <Skeleton animation="wave" width={255} sx={{ bgcolor: 'grey.900' }} />
+                    <Skeleton animation="pulse" width={255} sx={{ bgcolor: 'grey.900' }} />
                 </Typography>}
             <Grid container direction="row" justifyContent="space-between" alignItems="center" >
                 <Grid item className='temperature'>
@@ -106,7 +123,7 @@ function CityData(props) {
                 <Grid item xs={5}>
                     {weatherIcon ? <img src={weatherIcon} title={iconTitle} alt='Weather icon' className='main-icon' /> :
                         <Skeleton variant="circular"
-                            animation="wave"
+                            animation="pulse"
                             width={40}
                             height={40}
                             sx={{ mb: 1, bgcolor: 'grey.900' }} />}
