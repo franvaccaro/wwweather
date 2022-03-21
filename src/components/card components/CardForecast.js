@@ -1,10 +1,10 @@
 import React from 'react';
-import './styles/WeatherCard.css';
+import '../styles/WeatherCard.css';
 import { Grid, Typography } from '@mui/material';
-import ForecastDayOne from './forecast/ForecastDayOne';
-import ForecastDayTwo from './forecast/ForecastDayTwo';
-import ForecastDayThree from './forecast/ForecastDayThree';
-import ForecastDayFour from './forecast/ForecastDayFour';
+import ForecastDayOne from '../forecast/ForecastDayOne';
+import ForecastDayTwo from '../forecast/ForecastDayTwo';
+import ForecastDayThree from '../forecast/ForecastDayThree';
+import ForecastDayFour from '../forecast/ForecastDayFour';
 
 function CardForecast(props) {
 

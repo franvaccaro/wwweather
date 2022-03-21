@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from 'react';
-import './styles/WeatherCard.css';
+import '../styles/WeatherCard.css';
 import { Grid, Typography } from '@mui/material';
 import Skeleton from '@mui/material/Skeleton';
-import sunny from '../assets/weather-icons/icon_sunny.svg'
-import clearNight from '../assets/weather-icons/icon_clear.svg'
-import partlyCloudy from '../assets/weather-icons/icon_partlycloudy.svg'
-import partlyCloudyNight from '../assets/weather-icons/icon_partlycloudy-night.svg'
-import cloudy from '../assets/weather-icons/icon_cloudy.svg'
-import rain from '../assets/weather-icons/icon_drizzle.svg'
-import rainThunder from '../assets/weather-icons/icon_rain_thunderstorm.svg'
-import lightRain from '../assets/weather-icons/icon_rain.svg'
-import snow from '../assets/weather-icons/icon_blizzard.svg'
+import sunny from '../../assets/weather-icons/icon_sunny.svg'
+import clearNight from '../../assets/weather-icons/icon_clear.svg'
+import partlyCloudy from '../../assets/weather-icons/icon_partlycloudy.svg'
+import partlyCloudyNight from '../../assets/weather-icons/icon_partlycloudy-night.svg'
+import cloudy from '../../assets/weather-icons/icon_cloudy.svg'
+import rain from '../../assets/weather-icons/icon_drizzle.svg'
+import rainThunder from '../../assets/weather-icons/icon_rain_thunderstorm.svg'
+import lightRain from '../../assets/weather-icons/icon_rain.svg'
+import snow from '../../assets/weather-icons/icon_blizzard.svg'
 
 
 function CityData(props) {
@@ -87,7 +87,7 @@ function CityData(props) {
     }
 
     const setBackground = () => {
-        let currentTime = new Date().getHours();
+        let currentTime = 16;
         if (currentTime >= 0 && currentTime < 6) {
             document.body.className = "night"
         } if (currentTime >= 6 && currentTime < 12) {

@@ -1,9 +1,9 @@
 import { Container, Grid } from '@mui/material';
 import React from 'react';
 import './styles/WeatherCard.css';
-import CityData from './CityData';
-import CardDetails from './CardDetails';
-import CardForecast from './CardForecast';
+import CityData from './card components/CityData';
+import CardDetails from './card components/CardDetails';
+import CardForecast from './card components/CardForecast';
 import { useSelector } from 'react-redux';
 
 function WeatherCard() {

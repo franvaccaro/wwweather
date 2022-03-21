@@ -1,5 +1,5 @@
 import React from 'react';
-import './styles/WeatherCard.css';
+import '../styles/WeatherCard.css';
 import { Grid, Stack, Typography } from '@mui/material';
 
 function CardDetails(props) {
