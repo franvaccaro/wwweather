@@ -28,6 +28,7 @@ input:focus {
 .sunset {
   background: url('./assets/bg-images/03-Sunset.jpg');
   background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .night {

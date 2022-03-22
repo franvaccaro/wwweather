@@ -10,6 +10,7 @@ function WeatherCard() {
 
     const apiData = useSelector(state => state.weatherArr.apiData);
 
+
     return (
         <Container>
             <Grid container direction="column" justifyContent="center">
