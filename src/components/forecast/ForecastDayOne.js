@@ -19,41 +19,40 @@ function ForecastDayOne(props) {
     const [weatherIcon, setWeatherIcon] = useState('')
     const [iconTitle, setIconTitle] = useState('')
 
-    const checkForecastIcon = () => {
-        if (weatherInfo === 'Clear') {
-            setWeatherIcon(sunny)
-            setIconTitle('Clear Day')
-        } else if (weatherDescription.includes('broken')) {
-            setWeatherIcon(partlyCloudy)
-            setIconTitle('Partly Cloudy')
-        } else if (weatherDescription.includes('few')) {
-            setWeatherIcon(partlyCloudy)
-            setIconTitle('Partly Cloudy')
-        } else if (weatherInfo === 'Clouds' && !weatherDescription.includes('broken')) {
-            setWeatherIcon(cloudy)
-            setIconTitle('Cloudy')
-        } else if (weatherDescription.includes('storm')) {
-            setWeatherIcon(rainThunder)
-            setIconTitle('Electric Storm')
-        } else if (weatherInfo === 'Rain' && !weatherDescription.includes('light')
-            && !weatherDescription.includes('moderate')) {
-            setWeatherIcon(rain)
-            setIconTitle('Rain')
-        } else if (weatherDescription.includes('light rain')) {
-            setWeatherIcon(littleRain)
-            setIconTitle('Light Rain')
-        } else if (weatherDescription.includes('moderate rain')) {
-            setWeatherIcon(littleRain)
-            setIconTitle('Moderate Rain')
-        } else if (weatherInfo === 'Snow') {
-            setWeatherIcon(snow)
-            setIconTitle('Snow')
-        }
-    }
-
     useEffect(() => {
+        const checkForecastIcon = () => {
+            if (weatherInfo === 'Clear') {
+                setWeatherIcon(sunny)
+                setIconTitle('Clear Day')
+            } else if (weatherDescription.includes('broken')) {
+                setWeatherIcon(partlyCloudy)
+                setIconTitle('Partly Cloudy')
+            } else if (weatherDescription.includes('few')) {
+                setWeatherIcon(partlyCloudy)
+                setIconTitle('Partly Cloudy')
+            } else if (weatherInfo === 'Clouds' && !weatherDescription.includes('broken')) {
+                setWeatherIcon(cloudy)
+                setIconTitle('Cloudy')
+            } else if (weatherDescription.includes('storm')) {
+                setWeatherIcon(rainThunder)
+                setIconTitle('Electric Storm')
+            } else if (weatherInfo === 'Rain' && !weatherDescription.includes('light')
+                && !weatherDescription.includes('moderate')) {
+                setWeatherIcon(rain)
+                setIconTitle('Rain')
+            } else if (weatherDescription.includes('light rain')) {
+                setWeatherIcon(littleRain)
+                setIconTitle('Light Rain')
+            } else if (weatherDescription.includes('moderate rain')) {
+                setWeatherIcon(littleRain)
+                setIconTitle('Moderate Rain')
+            } else if (weatherInfo === 'Snow') {
+                setWeatherIcon(snow)
+                setIconTitle('Snow')
+            }
+        }
         checkForecastIcon();
-    }, []);
+    }, [weatherDescription, weatherInfo]);
 
     return (
         <Grid item xs={2.5} className='forecast-container'>

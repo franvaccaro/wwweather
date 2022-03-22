@@ -29,62 +29,7 @@ function CityData(props) {
     const [weatherIcon, setWeatherIcon] = useState('')
     const [iconTitle, setIconTitle] = useState('')
 
-    const checkWeatherIcon = () => {
-        if (weatherInfo === 'Clear' && document.body.className === "morning") {
-            setWeatherIcon(sunny)
-            setIconTitle('Clear Morning')
-        } else if (weatherInfo === 'Clear' && document.body.className === "day") {
-            setWeatherIcon(sunny)
-            setIconTitle('Clear Day')
-        } else if (weatherInfo === 'Clear' && document.body.className === "sunset") {
-            setWeatherIcon(sunny)
-            setIconTitle('Clear Sunset')
-        } else if (weatherInfo === 'Clear' && document.body.className === "night") {
-            setWeatherIcon(clearNight)
-            setIconTitle('Clear Night')
-        } else if (weatherDescription.includes('broken') && document.body.className === "morning") {
-            setWeatherIcon(partlyCloudy)
-            setIconTitle('Partly Cloudy')
-        } else if (weatherDescription.includes('broken') && document.body.className === "day") {
-            setWeatherIcon(partlyCloudy)
-            setIconTitle('Partly Cloudy')
-        } else if (weatherDescription.includes('few') && document.body.className === "day") {
-            setWeatherIcon(partlyCloudy)
-            setIconTitle('Partly Cloudy')
-        } else if (weatherDescription.includes('broken') && document.body.className === "sunset") {
-            setWeatherIcon(partlyCloudy)
-            setIconTitle('Partly Cloudy')
-        } else if (weatherDescription.includes('few') && document.body.className === "sunset") {
-            setWeatherIcon(partlyCloudy)
-            setIconTitle('Partly Cloudy')
-        } else if (weatherDescription.includes('broken') && document.body.className === "night") {
-            setWeatherIcon(partlyCloudyNight)
-            setIconTitle('Partly Cloudy')
-        } else if (weatherDescription.includes('few') && document.body.className === "night") {
-            setWeatherIcon(partlyCloudyNight)
-            setIconTitle('Partly Cloudy')
-        } else if (weatherInfo === 'Clouds' && !weatherDescription.includes('broken')
-            && !weatherDescription.includes('few')) {
-            setWeatherIcon(cloudy)
-            setIconTitle('Cloudy')
-        } else if (weatherDescription.includes('storm')) {
-            setWeatherIcon(rainThunder)
-            setIconTitle('Electric Storm')
-        } else if (weatherInfo === 'Rain' && !weatherDescription.includes('light')
-            && !weatherDescription.includes('moderate')) {
-            setWeatherIcon(rain)
-            setIconTitle('Rain')
-        } else if (weatherDescription.includes('light rain')) {
-            setWeatherIcon(lightRain)
-            setIconTitle('Light Rain')
-        } else if (weatherDescription.includes('moderate rain')) {
-            setWeatherIcon(lightRain)
-            setIconTitle('Moderate Rain')
-        } else if (weatherInfo === 'Snow') {
-            setWeatherIcon(snow)
-            setIconTitle('Snow')
-        }
-    }
+
 
     const setBackground = () => {
         let currentTime = new Date().getHours();
@@ -102,12 +47,68 @@ function CityData(props) {
     }
 
     useEffect(() => {
+        const checkWeatherIcon = () => {
+            if (weatherInfo === 'Clear' && document.body.className === "morning") {
+                setWeatherIcon(sunny)
+                setIconTitle('Clear Morning')
+            } else if (weatherInfo === 'Clear' && document.body.className === "day") {
+                setWeatherIcon(sunny)
+                setIconTitle('Clear Day')
+            } else if (weatherInfo === 'Clear' && document.body.className === "sunset") {
+                setWeatherIcon(sunny)
+                setIconTitle('Clear Sunset')
+            } else if (weatherInfo === 'Clear' && document.body.className === "night") {
+                setWeatherIcon(clearNight)
+                setIconTitle('Clear Night')
+            } else if (weatherDescription.includes('broken') && document.body.className === "morning") {
+                setWeatherIcon(partlyCloudy)
+                setIconTitle('Partly Cloudy')
+            } else if (weatherDescription.includes('broken') && document.body.className === "day") {
+                setWeatherIcon(partlyCloudy)
+                setIconTitle('Partly Cloudy')
+            } else if (weatherDescription.includes('few') && document.body.className === "day") {
+                setWeatherIcon(partlyCloudy)
+                setIconTitle('Partly Cloudy')
+            } else if (weatherDescription.includes('broken') && document.body.className === "sunset") {
+                setWeatherIcon(partlyCloudy)
+                setIconTitle('Partly Cloudy')
+            } else if (weatherDescription.includes('few') && document.body.className === "sunset") {
+                setWeatherIcon(partlyCloudy)
+                setIconTitle('Partly Cloudy')
+            } else if (weatherDescription.includes('broken') && document.body.className === "night") {
+                setWeatherIcon(partlyCloudyNight)
+                setIconTitle('Partly Cloudy')
+            } else if (weatherDescription.includes('few') && document.body.className === "night") {
+                setWeatherIcon(partlyCloudyNight)
+                setIconTitle('Partly Cloudy')
+            } else if (weatherInfo === 'Clouds' && !weatherDescription.includes('broken')
+                && !weatherDescription.includes('few')) {
+                setWeatherIcon(cloudy)
+                setIconTitle('Cloudy')
+            } else if (weatherDescription.includes('storm')) {
+                setWeatherIcon(rainThunder)
+                setIconTitle('Electric Storm')
+            } else if (weatherInfo === 'Rain' && !weatherDescription.includes('light')
+                && !weatherDescription.includes('moderate')) {
+                setWeatherIcon(rain)
+                setIconTitle('Rain')
+            } else if (weatherDescription.includes('light rain')) {
+                setWeatherIcon(lightRain)
+                setIconTitle('Light Rain')
+            } else if (weatherDescription.includes('moderate rain')) {
+                setWeatherIcon(lightRain)
+                setIconTitle('Moderate Rain')
+            } else if (weatherInfo === 'Snow') {
+                setWeatherIcon(snow)
+                setIconTitle('Snow')
+            }
+        }
         setInterval(() => {
             getDate()
             setBackground()
             checkWeatherIcon()
         }, 1000);
-    }, []);
+    }, [weatherDescription, weatherInfo]);
 
     return (
         <Grid item alignSelf='flex-start' sx={{ width: '336px' }}>
