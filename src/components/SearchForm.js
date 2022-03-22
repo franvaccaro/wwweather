@@ -2,12 +2,13 @@ import React from 'react';
 import './styles/SearchForm.css';
 import location from '../assets/location.svg';
 import searchIcon from '../assets/search.svg';
+import logo from '../assets/logo.svg';
 
 function SearchForm() {
   return (
 
     <div className='searchBar'>
-      <div className='appTitle'>wwweather</div>
+      <img src={logo} alt='logo' className='logo'></img>
       <img src={location} title='Location' className='locationIcon' alt='location-icon'></img>
       <div className='locationText'>Buenos Aires, Argentina</div>
       <form>
