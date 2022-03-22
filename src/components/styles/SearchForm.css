@@ -1,4 +1,4 @@
-.searchBar {
+  .searchBar {
     position: absolute;
     width: 1920px;
     height: 120px;
@@ -7,12 +7,12 @@
     opacity: 0.94;
   }
   
-.logo {
-  position: absolute;
-  width: 207.34px;
-  height: 50px;
-  left: 253px;
-  top: 35px;
+  .logo {
+    position: absolute;
+    width: 207.34px;
+    height: 50px;
+    left: 253px;
+    top: 35px;
   } 
 
  .locationIcon {

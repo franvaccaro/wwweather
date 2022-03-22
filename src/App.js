@@ -1,7 +1,7 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import './App.css';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { CssBaseline } from '@mui/material';
+import { CssBaseline, Grow } from '@mui/material';
 import SearchForm from './components/SearchForm';
 import WeatherCard from './components/WeatherCard';
 import Loader from './components/loader/Loader.js'
@@ -40,11 +40,19 @@ function App() {
     setBackground()
   }, [dispatch]);
 
+  const growRef = useRef(null);
+
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <SearchForm />
-      {isLoaded ? <WeatherCard /> : <Loader />}
+      {isLoaded ? <Grow in={isLoaded}
+        ref={growRef}
+        className='grow'
+        sx={{ mt: '430px', ml: '-125px' }}>
+        <WeatherCard />
+      </Grow>
+        : <Loader />}
     </ThemeProvider>
   )
 };

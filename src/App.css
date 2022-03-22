@@ -17,23 +17,37 @@ input:focus {
   background: url('./assets/bg-images/01-Morning.jpg');
   background-size: cover;
   background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 .day {
   background: url('./assets/bg-images/02-Day.jpg');
   background-size: cover;
   background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 .sunset {
   background: url('./assets/bg-images/03-Sunset.jpg');
   background-size: cover;
   background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 .night {
   background: url('./assets/bg-images/04-Night.jpg');
   background-size: cover;
   background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.grow {
+    width: 1414px;
+    height: 323px;
+    left: 250px;
+    top: 439px;    
+    background: rgba(13, 34, 45, 0.1);
+    backdrop-filter: blur(50px);
+    border-radius: 20px;
 }
 
