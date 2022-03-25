@@ -14,28 +14,28 @@ input:focus {
 }
 
 .morning {
-  background: url('./assets/bg-images/01-Morning.jpg');
+  background: url('./assets/bg-images/01-Morning-1080.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
 
 .day {
-  background: url('./assets/bg-images/02-Day.jpg');
+  background: url('./assets/bg-images/02-Day-1080.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
 
 .sunset {
-  background: url('./assets/bg-images/03-Sunset.jpg');
+  background: url('./assets/bg-images/03-Sunset-1080.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
 
 .night {
-  background: url('./assets/bg-images/04-Night.jpg');
+  background: url('./assets/bg-images/04-Night-1080.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;

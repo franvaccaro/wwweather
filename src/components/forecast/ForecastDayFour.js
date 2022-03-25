@@ -8,7 +8,7 @@ import partlyCloudy from '../../assets/weather-icons/icon_partlycloudy.svg'
 import cloudy from '../../assets/weather-icons/icon_cloudy.svg'
 import rainThunder from '../../assets/weather-icons/icon_rain_thunderstorm.svg'
 import rain from '../../assets/weather-icons/icon_drizzle.svg'
-import littleRain from '../../assets/weather-icons/icon_rain.svg'
+import lightRain from '../../assets/weather-icons/icon_rain.svg'
 import snow from '../../assets/weather-icons/icon_blizzard.svg'
 
 
@@ -40,11 +40,14 @@ function ForecastDayFour(props) {
                 && !weatherDescription.includes('moderate')) {
                 setWeatherIcon(rain)
                 setIconTitle('Rain')
+            } else if (weatherInfo === 'Drizzle') {
+                setWeatherIcon(lightRain)
+                setIconTitle('Light Rain')
             } else if (weatherDescription.includes('light rain')) {
-                setWeatherIcon(littleRain)
+                setWeatherIcon(lightRain)
                 setIconTitle('Light Rain')
             } else if (weatherDescription.includes('moderate rain')) {
-                setWeatherIcon(littleRain)
+                setWeatherIcon(lightRain)
                 setIconTitle('Moderate Rain')
             } else if (weatherInfo === 'Snow') {
                 setWeatherIcon(snow)

@@ -92,6 +92,9 @@ function CityData(props) {
                 && !weatherDescription.includes('moderate')) {
                 setWeatherIcon(rain)
                 setIconTitle('Rain')
+            } else if (weatherInfo === 'Drizzle') {
+                setWeatherIcon(lightRain)
+                setIconTitle('Light Rain')
             } else if (weatherDescription.includes('light rain')) {
                 setWeatherIcon(lightRain)
                 setIconTitle('Light Rain')
