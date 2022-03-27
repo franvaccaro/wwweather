@@ -53,6 +53,9 @@ function ForecastDayFour(props) {
             } else if (weatherInfo === 'Fog') {
                 setWeatherIcon(fog)
                 setIconTitle('Fog')
+            } else if (weatherInfo === 'Mist') {
+                setWeatherIcon(fog)
+                setIconTitle('Fog')
             } else if (weatherInfo === 'Snow') {
                 setWeatherIcon(snow)
                 setIconTitle('Snow')

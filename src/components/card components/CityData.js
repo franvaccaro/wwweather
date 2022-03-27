@@ -103,6 +103,9 @@ function CityData(props) {
             } else if (weatherInfo === 'Fog') {
                 setWeatherIcon(fog)
                 setIconTitle('Fog')
+            } else if (weatherInfo === 'Mist') {
+                setWeatherIcon(fog)
+                setIconTitle('Fog')
             } else if (weatherInfo === 'Snow') {
                 setWeatherIcon(snow)
                 setIconTitle('Snow')
@@ -118,7 +121,7 @@ function CityData(props) {
     return (
         <Grid item alignSelf='flex-start' sx={{ width: '336px' }}>
             <Typography variant='h5' className='cityTitle'>
-                {props.cityLocation[2]}, {props.cityLocation[1]}
+                {props.cityLocation[2] ? `${props.cityLocation[2]},` : ''} {props.cityLocation[1] ? props.cityLocation[1] : ''}
             </Typography>
             {date ? <Grid className='dayInfo' sx={{ mt: '5px' }}> {time} • {date}  </Grid> :
                 <Typography variant='h5'>
