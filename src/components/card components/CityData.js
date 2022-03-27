@@ -10,6 +10,7 @@ import cloudy from '../../assets/weather-icons/icon_cloudy.svg'
 import rain from '../../assets/weather-icons/icon_drizzle.svg'
 import rainThunder from '../../assets/weather-icons/icon_rain_thunderstorm.svg'
 import lightRain from '../../assets/weather-icons/icon_rain.svg'
+import fog from '../../assets/weather-icons/icon_fog.svg'
 import snow from '../../assets/weather-icons/icon_blizzard.svg'
 
 
@@ -99,6 +100,9 @@ function CityData(props) {
             } else if (weatherDescription.includes('moderate rain')) {
                 setWeatherIcon(lightRain)
                 setIconTitle('Moderate Rain')
+            } else if (weatherInfo === 'Fog') {
+                setWeatherIcon(fog)
+                setIconTitle('Fog')
             } else if (weatherInfo === 'Snow') {
                 setWeatherIcon(snow)
                 setIconTitle('Snow')
