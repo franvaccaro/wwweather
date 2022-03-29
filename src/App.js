@@ -7,6 +7,7 @@ import WeatherCard from './components/WeatherCard';
 import Loader from './components/loader/Loader.js'
 import { useDispatch, useSelector } from 'react-redux';
 import { getWeather } from './redux/actions/getWeatherAction';
+import { handleLocation } from './redux/actions/handleLocationAction';
 
 function App() {
   const theme = createTheme({
@@ -36,6 +37,21 @@ function App() {
   }
 
   useEffect(() => {
+    const options = {
+      enableHighAccuracy: true,
+      timeout: 5000,
+      maximumAge: 0
+    };
+    const success = (pos) => {
+      dispatch(handleLocation(pos))
+    }
+    function error(err) {
+      console.warn('ERROR(' + err.code + '): ' + err.message);
+    }
+    const getLocation = () => {
+      navigator.geolocation.getCurrentPosition(success, error, options);
+    }
+    getLocation();
     dispatch(getWeather());
     setBackground()
   }, [dispatch]);

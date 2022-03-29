@@ -10,26 +10,20 @@ import cloudy from '../../assets/weather-icons/icon_cloudy.svg'
 import rain from '../../assets/weather-icons/icon_drizzle.svg'
 import rainThunder from '../../assets/weather-icons/icon_rain_thunderstorm.svg'
 import lightRain from '../../assets/weather-icons/icon_rain.svg'
+import fog from '../../assets/weather-icons/icon_fog.svg'
 import snow from '../../assets/weather-icons/icon_blizzard.svg'
 
 
 function CityData(props) {
 
-    const [date, setDate] = useState('')
-    const [time, setTime] = useState('')
+    const [date, setDate] = useState('');
+    const [time, setTime] = useState('');
 
     const getDate = () => {
         const timeStamp = Date.now();
         setDate(new Date(timeStamp).toLocaleDateString("en-GB", { weekday: 'short', year: 'numeric', month: 'long', day: 'numeric' }))
         setTime(new Date(timeStamp).toLocaleTimeString("en-US", { hour: '2-digit', minute: '2-digit', seconds: '2-digit', }))
     }
-
-    const weatherInfo = props.apiData.current.weather[0].main;
-    const weatherDescription = props.apiData.current.weather[0].description;
-    const [weatherIcon, setWeatherIcon] = useState('')
-    const [iconTitle, setIconTitle] = useState('')
-
-
 
     const setBackground = () => {
         let currentTime = new Date().getHours();
@@ -45,6 +39,11 @@ function CityData(props) {
             document.body.className = "night"
         }
     }
+
+    const weatherInfo = props.apiData.current.weather[0].main;
+    const weatherDescription = props.apiData.current.weather[0].description;
+    const [weatherIcon, setWeatherIcon] = useState('')
+    const [iconTitle, setIconTitle] = useState('')
 
     useEffect(() => {
         const checkWeatherIcon = () => {
@@ -92,12 +91,21 @@ function CityData(props) {
                 && !weatherDescription.includes('moderate')) {
                 setWeatherIcon(rain)
                 setIconTitle('Rain')
+            } else if (weatherInfo === 'Drizzle') {
+                setWeatherIcon(lightRain)
+                setIconTitle('Light Rain')
             } else if (weatherDescription.includes('light rain')) {
                 setWeatherIcon(lightRain)
                 setIconTitle('Light Rain')
             } else if (weatherDescription.includes('moderate rain')) {
                 setWeatherIcon(lightRain)
                 setIconTitle('Moderate Rain')
+            } else if (weatherInfo === 'Fog') {
+                setWeatherIcon(fog)
+                setIconTitle('Fog')
+            } else if (weatherInfo === 'Mist') {
+                setWeatherIcon(fog)
+                setIconTitle('Fog')
             } else if (weatherInfo === 'Snow') {
                 setWeatherIcon(snow)
                 setIconTitle('Snow')
@@ -112,7 +120,9 @@ function CityData(props) {
 
     return (
         <Grid item alignSelf='flex-start' sx={{ width: '336px' }}>
-            <Typography variant='h5' className='cityTitle'>Buenos Aires, Argentina</Typography>
+            <Typography variant='h5' className='cityTitle'>
+                {props.cityLocation[2] ? `${props.cityLocation[2]},` : ''} {props.cityLocation[1] ? props.cityLocation[1] : ''}
+            </Typography>
             {date ? <Grid className='dayInfo' sx={{ mt: '5px' }}> {time} • {date}  </Grid> :
                 <Typography variant='h5'>
                     <Skeleton animation="pulse" width={255} sx={{ bgcolor: 'grey.900' }} />
