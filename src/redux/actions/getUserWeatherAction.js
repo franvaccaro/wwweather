@@ -1,6 +1,12 @@
-export const getWeather = () =>
+export const getUserWeather = (props) =>
     (dispatch) => {
-        fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=36.2048&lon=138.2529&exclude=minutely,hourly,alerts&units=metric&appid=101c2615b3959ce818ab88818bcc4b45`)
+        dispatch({
+            type: 'SET_LOADER',
+            payload: {
+                loader: false,
+            }
+        })
+        fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${props.lat}&lon=${props.long}&exclude=minutely,hourly,alerts&units=metric&appid=101c2615b3959ce818ab88818bcc4b45`)
             .then(res => res.json())
             .then((result) => {
                 dispatch({
