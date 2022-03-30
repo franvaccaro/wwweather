@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import '../styles/WeatherCard.css';
 import { Grid, Typography } from '@mui/material';
 import Skeleton from '@mui/material/Skeleton';
@@ -13,117 +13,125 @@ import lightRain from '../../assets/weather-icons/icon_rain.svg'
 import fog from '../../assets/weather-icons/icon_fog.svg'
 import snow from '../../assets/weather-icons/icon_blizzard.svg'
 
-
 function CityData(props) {
 
     const [date, setDate] = useState('');
     const [time, setTime] = useState('');
 
-    const getDate = () => {
-        const timeStamp = Date.now();
-        setDate(new Date(timeStamp).toLocaleDateString("en-GB", { weekday: 'short', year: 'numeric', month: 'long', day: 'numeric' }))
-        setTime(new Date(timeStamp).toLocaleTimeString("en-US", { hour: '2-digit', minute: '2-digit', seconds: '2-digit', }))
-    }
-
-    const setBackground = () => {
-        let currentTime = new Date().getHours();
-        if (currentTime >= 0 && currentTime < 6) {
-            document.body.className = "night"
-        } if (currentTime >= 6 && currentTime < 12) {
-            document.body.className = "morning"
-        } if (currentTime >= 12 && currentTime < 17) {
-            document.body.className = "day"
-        } if (currentTime >= 17 && currentTime < 20) {
-            document.body.className = "sunset"
-        } if (currentTime >= 20 && currentTime < 24) {
-            document.body.className = "night"
-        }
-    }
-
     const weatherInfo = props.apiData.current.weather[0].main;
     const weatherDescription = props.apiData.current.weather[0].description;
     const [weatherIcon, setWeatherIcon] = useState('')
     const [iconTitle, setIconTitle] = useState('')
+    const interval = useRef(null);
+
+    const updateTime = useCallback(() => {
+        const timeStamp = Date.now();
+        setDate(new Date(timeStamp).toLocaleDateString("en-GB", { weekday: 'short', year: 'numeric', month: 'long', day: 'numeric', timeZone: props.apiData.timezone }))
+        setTime(new Date(timeStamp).toLocaleTimeString("en-GB", { hour: '2-digit', minute: '2-digit', timeZone: props.apiData.timezone }))
+    }, [props.apiData.timezone])
 
     useEffect(() => {
-        const checkWeatherIcon = () => {
-            if (weatherInfo === 'Clear' && document.body.className === "morning") {
-                setWeatherIcon(sunny)
-                setIconTitle('Clear Morning')
-            } else if (weatherInfo === 'Clear' && document.body.className === "day") {
-                setWeatherIcon(sunny)
-                setIconTitle('Clear Day')
-            } else if (weatherInfo === 'Clear' && document.body.className === "sunset") {
-                setWeatherIcon(sunny)
-                setIconTitle('Clear Sunset')
-            } else if (weatherInfo === 'Clear' && document.body.className === "night") {
-                setWeatherIcon(clearNight)
-                setIconTitle('Clear Night')
-            } else if (weatherDescription.includes('broken') && document.body.className === "morning") {
-                setWeatherIcon(partlyCloudy)
-                setIconTitle('Partly Cloudy')
-            } else if (weatherDescription.includes('broken') && document.body.className === "day") {
-                setWeatherIcon(partlyCloudy)
-                setIconTitle('Partly Cloudy')
-            } else if (weatherDescription.includes('few') && document.body.className === "day") {
-                setWeatherIcon(partlyCloudy)
-                setIconTitle('Partly Cloudy')
-            } else if (weatherDescription.includes('broken') && document.body.className === "sunset") {
-                setWeatherIcon(partlyCloudy)
-                setIconTitle('Partly Cloudy')
-            } else if (weatherDescription.includes('few') && document.body.className === "sunset") {
-                setWeatherIcon(partlyCloudy)
-                setIconTitle('Partly Cloudy')
-            } else if (weatherDescription.includes('broken') && document.body.className === "night") {
-                setWeatherIcon(partlyCloudyNight)
-                setIconTitle('Partly Cloudy')
-            } else if (weatherDescription.includes('few') && document.body.className === "night") {
-                setWeatherIcon(partlyCloudyNight)
-                setIconTitle('Partly Cloudy')
-            } else if (weatherInfo === 'Clouds' && !weatherDescription.includes('broken')
-                && !weatherDescription.includes('few')) {
-                setWeatherIcon(cloudy)
-                setIconTitle('Cloudy')
-            } else if (weatherDescription.includes('storm')) {
-                setWeatherIcon(rainThunder)
-                setIconTitle('Electric Storm')
-            } else if (weatherInfo === 'Rain' && !weatherDescription.includes('light')
-                && !weatherDescription.includes('moderate')) {
-                setWeatherIcon(rain)
-                setIconTitle('Rain')
-            } else if (weatherInfo === 'Drizzle') {
-                setWeatherIcon(lightRain)
-                setIconTitle('Light Rain')
-            } else if (weatherDescription.includes('light rain')) {
-                setWeatherIcon(lightRain)
-                setIconTitle('Light Rain')
-            } else if (weatherDescription.includes('moderate rain')) {
-                setWeatherIcon(lightRain)
-                setIconTitle('Moderate Rain')
-            } else if (weatherInfo === 'Fog') {
-                setWeatherIcon(fog)
-                setIconTitle('Fog')
-            } else if (weatherInfo === 'Mist') {
-                setWeatherIcon(fog)
-                setIconTitle('Fog')
-            } else if (weatherInfo === 'Snow') {
-                setWeatherIcon(snow)
-                setIconTitle('Snow')
+        updateTime()
+    }, [updateTime])
+
+    useEffect(() => {
+        interval.current = setInterval(() => {
+            updateTime()
+        }, 1000)
+        return () => {
+            clearInterval(interval.current)
+        }
+    }, [updateTime])
+
+    useEffect(() => {
+        if (time !== '') {
+            const currentTime = time.slice(0, 2)
+            if (currentTime >= 0 && currentTime < 6) {
+                document.body.className = "night"
+            } if (currentTime >= 6 && currentTime < 12) {
+                document.body.className = "morning"
+            } if (currentTime >= 12 && currentTime < 17) {
+                document.body.className = "day"
+            } if (currentTime >= 17 && currentTime < 20) {
+                document.body.className = "sunset"
+            } if (currentTime >= 20 && currentTime < 24) {
+                document.body.className = "night"
             }
         }
-        setInterval(() => {
-            getDate()
-            setBackground()
-            checkWeatherIcon()
-        }, 1000);
-    }, [weatherDescription, weatherInfo]);
+    }, [time])
+
+    useEffect(() => {
+        if (weatherInfo === 'Clear' && document.body.className === "morning") {
+            setWeatherIcon(sunny)
+            setIconTitle('Clear Morning')
+        } else if (weatherInfo === 'Clear' && document.body.className === "day") {
+            setWeatherIcon(sunny)
+            setIconTitle('Clear Day')
+        } else if (weatherInfo === 'Clear' && document.body.className === "sunset") {
+            setWeatherIcon(sunny)
+            setIconTitle('Clear Sunset')
+        } else if (weatherInfo === 'Clear' && document.body.className === "night") {
+            setWeatherIcon(clearNight)
+            setIconTitle('Clear Night')
+        } else if (weatherDescription.includes('broken') && document.body.className === "morning") {
+            setWeatherIcon(partlyCloudy)
+            setIconTitle('Partly Cloudy')
+        } else if (weatherDescription.includes('broken') && document.body.className === "day") {
+            setWeatherIcon(partlyCloudy)
+            setIconTitle('Partly Cloudy')
+        } else if (weatherDescription.includes('few') && document.body.className === "day") {
+            setWeatherIcon(partlyCloudy)
+            setIconTitle('Partly Cloudy')
+        } else if (weatherDescription.includes('broken') && document.body.className === "sunset") {
+            setWeatherIcon(partlyCloudy)
+            setIconTitle('Partly Cloudy')
+        } else if (weatherDescription.includes('few') && document.body.className === "sunset") {
+            setWeatherIcon(partlyCloudy)
+            setIconTitle('Partly Cloudy')
+        } else if (weatherDescription.includes('broken') && document.body.className === "night") {
+            setWeatherIcon(partlyCloudyNight)
+            setIconTitle('Partly Cloudy')
+        } else if (weatherDescription.includes('few') && document.body.className === "night") {
+            setWeatherIcon(partlyCloudyNight)
+            setIconTitle('Partly Cloudy')
+        } else if (weatherInfo === 'Clouds' && !weatherDescription.includes('broken')
+            && !weatherDescription.includes('few')) {
+            setWeatherIcon(cloudy)
+            setIconTitle('Cloudy')
+        } else if (weatherDescription.includes('storm')) {
+            setWeatherIcon(rainThunder)
+            setIconTitle('Electric Storm')
+        } else if (weatherInfo === 'Rain' && !weatherDescription.includes('light')
+            && !weatherDescription.includes('moderate')) {
+            setWeatherIcon(rain)
+            setIconTitle('Rain')
+        } else if (weatherInfo === 'Drizzle') {
+            setWeatherIcon(lightRain)
+            setIconTitle('Light Rain')
+        } else if (weatherDescription.includes('light rain')) {
+            setWeatherIcon(lightRain)
+            setIconTitle('Light Rain')
+        } else if (weatherDescription.includes('moderate rain')) {
+            setWeatherIcon(lightRain)
+            setIconTitle('Moderate Rain')
+        } else if (weatherInfo === 'Fog') {
+            setWeatherIcon(fog)
+            setIconTitle('Fog')
+        } else if (weatherInfo === 'Mist') {
+            setWeatherIcon(fog)
+            setIconTitle('Mist')
+        } else if (weatherInfo === 'Snow') {
+            setWeatherIcon(snow)
+            setIconTitle('Snow')
+        }
+    }, [weatherDescription, weatherInfo, time]);
 
     return (
         <Grid item alignSelf='flex-start' sx={{ width: '336px' }}>
             <Typography variant='h5' className='cityTitle'>
                 {props.cityLocation[2] ? `${props.cityLocation[2]},` : ''} {props.cityLocation[1] ? props.cityLocation[1] : ''}
             </Typography>
-            {date ? <Grid className='dayInfo' sx={{ mt: '5px' }}> {time} • {date}  </Grid> :
+            {date ? <Grid className='dayInfo' sx={{ mt: '5px' }}> {time} hs • {date}  </Grid> :
                 <Typography variant='h5'>
                     <Skeleton animation="pulse" width={255} sx={{ bgcolor: 'grey.900' }} />
                 </Typography>}
