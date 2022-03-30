@@ -1,20 +1,18 @@
-/* .cardContainer {
-    position: absolute;
-    width: 1414px;
-    height: 323px;
-    left: 253px;
-    top: 430px;
+.cardContainer {
+    display: flex;
+    height: 86vh;
+    align-items: center;
 }
 
 .Card {
-    width: 1414px;
-    height: 323px;
-    left: 253px;
-    top: 439px;    
+    display: flex;
+    align-content: center;
+    padding: 50px;
+    /* margin-top: 120px; */
     background: rgba(13, 34, 45, 0.1);
     backdrop-filter: blur(50px);
-    border-radius: 20px;
-} */
+    border-radius: 30px;
+}
 
 /* First Item  */
 
@@ -42,8 +40,6 @@
 .main-icon {
     width: 40px;
     height: 40px;
-    left: 559px;
-    top: 602px;
 }
 
 .main-weather-info {    

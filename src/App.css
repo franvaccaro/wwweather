@@ -1,11 +1,6 @@
-/* .form-input {
-  border-radius: 30px;
-  border: solid 2px;
-} */
+@import url('https://fonts.googleapis.com/css?family=Product+Sans|Roboto&display=swap');
 
 body {
-  background-size: cover;
-  background-repeat: no-repeat;
   font-family: 'Product Sans', sans-serif;
 }
 
@@ -39,15 +34,5 @@ input:focus {
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
-}
-
-.grow {
-    width: 1414px;
-    height: 323px;
-    left: 250px;
-    top: 439px;    
-    background: rgba(13, 34, 45, 0.1);
-    backdrop-filter: blur(50px);
-    border-radius: 20px;
 }
 

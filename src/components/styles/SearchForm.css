@@ -1,89 +1,55 @@
   .searchBar {
-    position: absolute;
-    width: 1920px;
+    position: static;
+    width: 100vw;
     height: 120px;
-    left: 0px;
     background: #1A1617;
     opacity: 0.94;
   }
   
-  .logo {
-    position: absolute;
-    width: 207.34px;
-    height: 50px;
-    left: 253px;
-    top: 35px;
-  } 
+  /* .logo {
+    margin-left: 20%;
+  }  */
 
  .locationIcon {
-    position: absolute;
-    width: 32px;
-    height: 32px;
-    left: 627px;
-    top: 44px;
+    transition: 0.3s ease-out;
+  }
+
+  .locationIcon:hover{
+    transform: scale(1.3) rotate(180deg);
   }
   
   .locationText {
-    position: absolute;
-    width: 256px;
-    height: 19px;
-    left: 667px;
-    top: 50px;
+    display: flex;
+    align-items: center;
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
-    line-height: 19px;
     color: #FFFFFF;
   }
   
   .inputField {
-    position: absolute;
-    width: 554px;
+    display: flex;
+    width: 500px;
     height: 64px;
-    left: 1113px;
-    top: 25px;
     background: #525B6D;
-    border-radius: 40px;
-    border: solid 0.5px;
+    border-radius: 50px;
+    border: none;
     border-color: #1A1617;
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
     color: #FFFFFF;
-    padding-left: 35px;
+    padding-left: 3%;
   }
   
   .searchButton {
-    position: absolute;
-    width: 63px;
-    height: 63px;
-    right: 254px;
-    top: 25px;
+    display: flex;
     background: #FFA900;
     border: 2px solid #39383B;
     box-sizing: border-box;
     border-radius: 40px;
-  }
-  
-  .btnContainer {
-    position: absolute;
-    width: 64px;
-    height: 64px;
-    right: 253px;
-    top: 30px;
-    background: #FFA900;
-    border: 2px solid #39383B;
-    box-sizing: border-box;
-    border-radius: 40px;
-  }
-  
-  .searchIcon {
-    width: 24px;
-    height: 24px;
-    left: 1623px;
-    top: 50px;
-  }
-
+  }  
+    
   ::placeholder {
     font-style: normal;
     font-weight: 400;
