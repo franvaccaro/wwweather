@@ -5,12 +5,16 @@ import CityData from './card components/CityData';
 import CardDetails from './card components/CardDetails';
 import CardForecast from './card components/CardForecast';
 import { useSelector } from 'react-redux';
+import useMediaQuery from '@mui/material/useMediaQuery';
+
 
 const WeatherCard = forwardRef((props, ref) => {
 
     const apiData = useSelector(state => state.weatherArr.apiData);
     const cityInfo = apiData.timezone;
     const [cityLocation, setCityLocation] = useState('');
+
+    const isMobile = useMediaQuery('(max-width:600px)');
 
     useEffect(() => {
         const getLocationData = () => {
@@ -26,15 +30,11 @@ const WeatherCard = forwardRef((props, ref) => {
 
     return (
         <Container>
-            <Grid container direction="column" justifyContent="center">
-                <Grid item ref={ref} {...props}>
-                    <Container sx={{ p: '50px' }}>
-                        <Grid container justifyContent="space-between" direction='row' alignItems="center">
-                            <CityData apiData={apiData} cityLocation={cityLocation} />
-                            <CardDetails current={apiData.current} />
-                            <CardForecast daily={apiData.daily} />
-                        </Grid>
-                    </Container>
+            <Grid className='cardContainer'>
+                <Grid className='Card' container justifyContent="space-between" direction={isMobile ? 'column' : 'row'} alignItems="center">
+                    <CityData apiData={apiData} cityLocation={cityLocation} />
+                    <CardDetails current={apiData.current} />
+                    <CardForecast daily={apiData.daily} />
                 </Grid>
             </Grid>
         </Container>

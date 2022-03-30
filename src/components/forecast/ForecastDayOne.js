@@ -83,7 +83,7 @@ function ForecastDayOne(props) {
                     </Typography>
                 </Stack>
             </Stack>
-        </Grid>
+        </Grid >
     )
 }
 
