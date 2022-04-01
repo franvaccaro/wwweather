@@ -2,7 +2,8 @@ import React from 'react';
 import './styles/SearchForm.css';
 import location from '../assets/location.svg';
 import searchIcon from '../assets/search.svg';
-import logo from '../assets/logo.svg';
+import logoNube from '../assets/logo_nube.svg';
+import textLogo from '../assets/logo_weather.svg';
 import { useDispatch, useSelector } from 'react-redux';
 import { getUserWeather } from '../redux/actions/getUserWeatherAction';
 import { Grid, Stack, Typography, useMediaQuery } from '@mui/material';
@@ -21,8 +22,11 @@ function SearchForm() {
 
   return (
     <Grid container justifyContent="space-around" className='searchBar'>
-      <Grid item alignSelf="center" textAlign="center" xs={2}>
-        <img src={logo} alt='logo' className='logo'></img>
+      <Grid item alignSelf="center" textAlign="center">
+        <Stack direction="row" spacing={1}>
+          <img src={logoNube} alt='cloudLogo' className='logo'></img>
+          {isMobile ? null : <img src={textLogo} alt='textLogo' className='logo'></img>}
+        </Stack>
       </Grid>
       <Grid item alignSelf="center">
         {isMobile ? null :
@@ -39,9 +43,11 @@ function SearchForm() {
         }
       </Grid>
       <Grid item alignSelf="center">
-        <form className='inputField'>
-          <input type='text' className='inputField' placeholder="Search..."></input>
-          <input type="image" src={searchIcon} className='searchIcon' alt='search-icon'></input>
+        <form>
+          <Grid className='inputContainer'>
+            <input type='text' className='inputField' placeholder="Search..."></input>
+            <input type="image" src={searchIcon} className='searchIcon' alt='search-icon'></input>
+          </Grid>
         </form>
       </Grid>
     </Grid>

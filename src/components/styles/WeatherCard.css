@@ -1,17 +1,39 @@
+.weatherCardContainer {
+    background: none;
+}
+
 .cardContainer {
-    display: flex;
     height: 86vh;
     align-items: center;
+    display: flex;
+    margin-top: 120px;
 }
 
 .Card {
     display: flex;
     align-content: center;
     padding: 50px;
-    /* margin-top: 120px; */
-    background: rgba(13, 34, 45, 0.1);
-    backdrop-filter: blur(50px);
     border-radius: 30px;
+    background: linear-gradient(180deg, rgba(78, 78, 78, 0.25) 0%, rgba(26, 22, 23, 0.47) 100%);
+    backdrop-filter: blur(50px);
+}
+
+@media only screen and (max-width: 600px) {
+    .weatherCardContainer {
+        background: linear-gradient(180deg, rgba(78, 78, 78, 0.25) 0%, rgba(26, 22, 23, 0.47) 100%);
+        backdrop-filter: blur(50px);
+    }
+
+    .cardContainer {
+        display: unset;
+    }
+
+    .Card {
+        background: none;
+        backdrop-filter: none;
+        margin-top: 50px;
+        row-gap: 40px;
+    }
 }
 
 /* First Item  */
@@ -27,14 +49,14 @@
     font-style: normal;
     font-weight: 400;
     font-size: 18px;
-    color: #B5B5B5;
+    color: #E7E7E7;
 }
 
-.temperature {    
+.temperature {
     font-style: normal;
     font-weight: 700;
     font-size: 120px;
-    color: #FFFFFF;   
+    color: #FFFFFF;
 }
 
 .main-icon {
@@ -42,16 +64,17 @@
     height: 40px;
 }
 
-.main-weather-info {    
+.main-weather-info {
     font-style: normal;
     font-weight: 400;
     font-size: 18px;
-    color: #B5B5B5;
+    letter-spacing: 0.02em;
+    color: #E7E7E7;
 }
 
 /* Second Item  */
 
-.details-title {    
+.details-title {
     font-style: normal;
     font-weight: 400;
     font-size: 18px;
@@ -68,7 +91,7 @@
 }
 
 .details-subtitle {
-    color: #FFA900;    
+    color: #FFA900;
     font-style: normal;
     font-weight: 400;
     font-size: 15px;
@@ -78,7 +101,7 @@
     width: 30px;
     height: 21px;
     left: 28px;
-    top: 38px;    
+    top: 38px;
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
@@ -96,21 +119,21 @@
     padding-right: 10px;
 }
 
-.forecast-day {    
+.forecast-day {
     font-style: normal;
     font-weight: 300;
     font-size: 13px;
     color: #FFA900;
 }
 
-.forecast-maxTemp {    
+.forecast-maxTemp {
     font-style: normal;
     font-weight: 400;
     font-size: 17px;
     color: #FFFFFF;
 }
 
-.forecast-minTemp {    
+.forecast-minTemp {
     font-style: normal;
     font-weight: 400;
     font-size: 13px;
@@ -131,7 +154,7 @@
     top: 136px;
 }
 
-.forecast-precipitation {    
+.forecast-precipitation {
     font-style: normal;
     font-weight: 400;
     font-size: 13px;
