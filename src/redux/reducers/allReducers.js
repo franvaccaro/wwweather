@@ -1,12 +1,12 @@
-import { combineReducers } from "redux";
-import loaderReducer from "./loaderReducer.js";
-import locationReducer from "./locationReducer.js";
-import weatherReducer from "./weatherReducer.js";
+import { combineReducers } from 'redux';
+import loaderReducer from './loaderReducer';
+import locationReducer from './locationReducer';
+import weatherReducer from './weatherReducer';
 
 const allReducers = combineReducers({
-    weatherArr: weatherReducer,
-    loaderState: loaderReducer,
-    locationData: locationReducer,
-})
+  weatherArr: weatherReducer,
+  loaderState: loaderReducer,
+  locationData: locationReducer,
+});
 
 export default allReducers;
