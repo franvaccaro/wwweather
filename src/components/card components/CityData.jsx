@@ -144,10 +144,12 @@ function CityData() {
     }
   }, [weatherDescription, weatherInfo, time]);
 
+  const fullCityName = cityLocation[2] ? `${cityLocation[2]}, ${cityLocation[1]}` : cityLocation[1];
+
   return (
     <Grid item alignSelf="flex-start" sx={{ width: '320px' }}>
       <Typography variant="h5" className="cityTitle">
-        {cityName || cityLocation[1]}
+        {cityName || fullCityName}
       </Typography>
       {date ? (
         <Grid className="dayInfo" sx={{ mt: '5px' }}>

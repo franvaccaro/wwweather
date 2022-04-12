@@ -5,7 +5,6 @@ import { Divider, Grid } from '@mui/material';
 import Dialog from '@mui/material/Dialog';
 import { useDispatch, useSelector } from 'react-redux';
 import chevron from '../assets/right.svg';
-// import { handleDialog } from '../redux/actions/handleDialogAction';
 import { searchWeather } from '../redux/actions/searchWeatherAction';
 
 function DialogCard() {

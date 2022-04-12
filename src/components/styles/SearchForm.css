@@ -129,17 +129,40 @@
   }
 
   .inputField {
-    width: 280px;
+    width: 228px;
     padding-left: 8%;
     font-size: 14px;
   }
 
   .searchIcon {
     margin-left: -50px;
-    transform: scale(0.7);
+    transform: scale(0.8);
   }
 
   ::placeholder {
     font-size: 14px;
+  }
+
+  .locationIcon {
+    transition: none;
+  }
+
+  .locationIcon:hover {
+    transform: scale(1.2);
+  }
+
+}
+
+@media only screen and (max-width: 958px) {
+  .locationIcon {
+    margin-top: 5px;
+    padding-right: 15px;
+    padding-left: 5px;
+    transition: none;
+    transform: scale(1.2);
+  }
+
+  .locationIcon:hover {
+    transform: scale(1.2) rotate(0deg);
   }
 }

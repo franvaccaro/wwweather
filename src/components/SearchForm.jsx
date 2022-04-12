@@ -45,8 +45,8 @@ function SearchForm() {
           {isMobile ? null : <img src={textLogo} alt="textLogo" className="logo" />}
         </Stack>
       </Grid>
-      <Grid item alignSelf="center">
-        {isMobile ? null : (
+      {isMobile ? null : (
+        <Grid item alignSelf="center">
           <Stack direction="row" spacing={1}>
             <input
               type="image"
@@ -64,8 +64,8 @@ function SearchForm() {
               {userLocation ? userLocation.country : ''}
             </Typography>
           </Stack>
-        )}
-      </Grid>
+        </Grid>
+      )}
       <Grid item alignSelf="center">
         <form id="form-id" onSubmit={(e) => handleInput(e)}>
           <Grid className="inputContainer">
@@ -85,6 +85,20 @@ function SearchForm() {
           </Grid>
         </form>
       </Grid>
+      {isMobile
+        ? (
+          <Grid item alignSelf="center">
+            <input
+              type="image"
+              src={location}
+              title="Location"
+              className="locationIcon"
+              alt="location-icon"
+              onClick={(e) => { handleUserWeather(e); }}
+            />
+          </Grid>
+        )
+        : null}
       <DialogCard />
     </Grid>
   );
