@@ -18,6 +18,7 @@ import snow from '../../assets/weather-icons/icon_blizzard.svg';
 
 function CityData() {
   const apiData = useSelector((state) => state.weatherArr.apiData);
+  const cityName = useSelector((state) => state.weatherArr.cityName);
   const cityInfo = apiData.timezone;
   const [cityLocation, setCityLocation] = useState('');
 
@@ -146,13 +147,12 @@ function CityData() {
   return (
     <Grid item alignSelf="flex-start" sx={{ width: '320px' }}>
       <Typography variant="h5" className="cityTitle">
-        {cityLocation[2] ? `${cityLocation[2]},` : ''}
-        {' '}
-        {cityLocation[1] ? cityLocation[1] : ''}
+        {cityName || cityLocation[1]}
       </Typography>
       {date ? (
         <Grid className="dayInfo" sx={{ mt: '5px' }}>
           {time}
+          {' '}
           hs
           {' '}
           •
@@ -185,8 +185,10 @@ function CityData() {
           </Typography>
           <Typography className="main-weather-info">
             H:
+            {' '}
             {Math.round(apiData.daily[0].temp.max)}
             ° • L:
+            {' '}
             {Math.round(apiData.daily[0].temp.min)}
             °
           </Typography>

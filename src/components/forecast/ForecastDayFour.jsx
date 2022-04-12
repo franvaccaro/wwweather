@@ -91,7 +91,7 @@ function ForecastDayTwo() {
         <Stack direction="row" spacing={1} alignItems="center" justifyContent="center">
           <img src={precipitation} title="Precipitation" className="forecast-precipitationIcon" alt="precipitation-icon" />
           <Typography variant="p" className="forecast-precipitation">
-            {daily[2].rain ? Math.round(daily[4].rain) : '0'}
+            {daily[4].rain ? Math.round(daily[4].rain) : '0'}
             %
           </Typography>
         </Stack>

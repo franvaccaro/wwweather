@@ -7,6 +7,7 @@ const weatherReducer = (state = initialState, action) => {
       return {
         ...state,
         apiData: action.payload.apiData,
+        cityName: action.payload.cityName,
       };
     default:
       return state;

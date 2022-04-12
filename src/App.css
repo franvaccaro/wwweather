@@ -13,6 +13,7 @@ input:focus {
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
+  background-position: center center;
 }
 
 .day {
@@ -20,6 +21,7 @@ input:focus {
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
+  background-position: center center;
 }
 
 .sunset {
@@ -27,6 +29,7 @@ input:focus {
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
+  background-position: center center;
 }
 
 .night {
@@ -34,4 +37,13 @@ input:focus {
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
+  background-position: center center;
+}
+
+.error {
+  background: url('./assets/bg-images/404-1080.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center center;
 }

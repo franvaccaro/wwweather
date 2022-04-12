@@ -99,6 +99,11 @@
     padding-bottom: 13px;
     padding-left: 20px;
     padding-right: 20px;
+    transition: 0.3s ease-out;
+}
+
+.details-container:hover {
+    transform: translateX(3px)
 }
 
 .details-subtitle {
@@ -128,6 +133,11 @@
     padding-bottom: 10px;
     padding-left: 10px;
     padding-right: 10px;
+    transition: 0.3s ease-out;
+}
+
+.forecast-container:hover {
+    transform: translateY(-5px);
 }
 
 .forecast-day {

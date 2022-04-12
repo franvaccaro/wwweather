@@ -15,7 +15,9 @@ function App() {
     palette: {
       background: {
         default: '#121212',
+        paper: 'none',
       },
+      divider: 'rgba(255, 255, 255, 0.2)',
     },
   });
 

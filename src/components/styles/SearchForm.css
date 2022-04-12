@@ -74,6 +74,45 @@
   color: #cccbcb;
 }
 
+/* Dialog Styles */
+
+.dialogContainer {
+  padding: 30px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.564) 100%);
+  backdrop-filter: blur(50px);
+  border-radius: 20px;
+}
+
+.dialogTitle {
+  display: block;
+  padding: 20px;
+  font-family: 'Product Sans', sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.1em;
+  color: #fff;
+}
+
+.dialogList {
+  width: 250px;
+  font-family: 'Product Sans', sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  letter-spacing: 0.1em;
+  color: #FFFFFF;
+}
+
+.chevron {
+  align-self: center;
+  padding-left: 30px;
+  color: #FFA900;
+  border-radius: 1px;
+}
+
+/* -------------------------- */
+
 @media only screen and (max-width: 600px) {
   .logo {
     transform: scale(0.7);

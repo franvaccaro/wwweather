@@ -1,5 +1,6 @@
+/* eslint-disable no-unused-expressions */
 /* eslint-disable no-alert */
-import React from 'react';
+import React, { useState } from 'react';
 import './styles/SearchForm.css';
 import { useDispatch, useSelector } from 'react-redux';
 import {
@@ -10,15 +11,23 @@ import searchIcon from '../assets/search.svg';
 import logoNube from '../assets/logo_nube.svg';
 import textLogo from '../assets/logo_weather.svg';
 import { getUserWeather } from '../redux/actions/getUserWeatherAction';
+import { handleSearch } from '../redux/actions/handleSearchAction';
+import DialogCard from './DialogCard';
 
 function SearchForm() {
   const dispatch = useDispatch();
   const userLocation = useSelector((state) => state.locationData.location[0]);
+  const [inputValue, setinputValue] = useState(null);
 
   const handleUserWeather = (e) => {
     e.preventDefault();
-    // eslint-disable-next-line no-unused-expressions
     userLocation ? dispatch(getUserWeather(userLocation.coords)) : alert('Please allow location to continue');
+  };
+
+  const handleInput = (e) => {
+    e.preventDefault();
+    inputValue ? dispatch(handleSearch(inputValue)) : null;
+    document.getElementById('form-id').reset();
   };
 
   const isMobile = useMediaQuery('(max-width:958px)');
@@ -58,13 +67,25 @@ function SearchForm() {
         )}
       </Grid>
       <Grid item alignSelf="center">
-        <form>
+        <form id="form-id" onSubmit={(e) => handleInput(e)}>
           <Grid className="inputContainer">
-            <input type="text" className="inputField" placeholder="Search..." />
-            <input type="image" src={searchIcon} className="searchIcon" alt="search-icon" />
+            <input
+              type="text"
+              className="inputField"
+              placeholder="Search..."
+              onChange={(e) => setinputValue(e.target.value.trim())}
+            />
+            <input
+              type="image"
+              src={searchIcon}
+              className="searchIcon"
+              onClick={(e) => handleInput(e)}
+              alt="search-icon"
+            />
           </Grid>
         </form>
       </Grid>
+      <DialogCard />
     </Grid>
   );
 }
