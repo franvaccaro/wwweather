@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import './styles/SearchForm.css';
 import { useDispatch, useSelector } from 'react-redux';
 import {
-  Grid, Stack, Typography, useMediaQuery,
+  Grid, Stack, Tooltip, Typography, useMediaQuery,
 } from '@mui/material';
 import location from '../assets/location.svg';
 import searchIcon from '../assets/search.svg';
@@ -13,6 +13,7 @@ import textLogo from '../assets/logo_weather.svg';
 import { getUserWeather } from '../redux/actions/getUserWeatherAction';
 import { handleSearch } from '../redux/actions/handleSearchAction';
 import DialogCard from './DialogCard';
+import Credits from './Credits';
 
 function SearchForm() {
   const dispatch = useDispatch();
@@ -41,7 +42,20 @@ function SearchForm() {
     >
       <Grid item alignSelf="center" textAlign="center">
         <Stack direction="row" spacing={1}>
-          <img src={logoNube} alt="cloudLogo" className="logo" />
+          <Tooltip title="Credits">
+            <input
+              type="image"
+              src={logoNube}
+              alt="cloudLogo"
+              className="logo"
+              onClick={() => dispatch({
+                type: 'SET_CREDITS',
+                payload: {
+                  credits: true,
+                },
+              })}
+            />
+          </Tooltip>
           {isMobile ? null : <img src={textLogo} alt="textLogo" className="logo" />}
         </Stack>
       </Grid>
@@ -100,6 +114,7 @@ function SearchForm() {
         )
         : null}
       <DialogCard />
+      <Credits />
     </Grid>
   );
 }

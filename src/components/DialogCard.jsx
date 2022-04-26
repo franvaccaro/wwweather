@@ -21,13 +21,19 @@ function DialogCard() {
         },
       })}
       open={openDialog}
+      PaperProps={{
+        style: {
+          backgroundColor: 'transparent',
+          boxShadow: 'none',
+        },
+      }}
     >
       <Grid className="dialogContainer">
         <Grid className="dialogTitle">Choose your city</Grid>
         <Divider />
         <List sx={{ pt: 0 }}>
           {results.map((city) => (
-            <Grid key={`${city.name}${city.state}`}>
+            <Grid key={`${city.lat},${city.long}`}>
               <ListItem
                 button
                 onClick={() => dispatch(searchWeather(city))}

@@ -20,6 +20,11 @@ export const getUserWeather = (props) => (dispatch) => {
           payload: {
             loader: true,
           },
+        }); dispatch({
+          type: 'SET_ERROR',
+          payload: {
+            notFound: false,
+          },
         });
       },
     );

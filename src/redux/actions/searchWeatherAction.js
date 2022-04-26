@@ -24,6 +24,12 @@ export const searchWeather = (props) => (dispatch) => {
           },
         });
         dispatch({
+          type: 'SET_ERROR',
+          payload: {
+            notFound: false,
+          },
+        });
+        dispatch({
           type: 'SET_DIALOG',
           payload: {
             openDialog: false,

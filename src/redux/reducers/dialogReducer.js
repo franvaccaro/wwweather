@@ -1,4 +1,4 @@
-const initialState = { openDialog: false };
+const initialState = { openDialog: false, openCredits: false };
 
 // eslint-disable-next-line default-param-last
 const dialogReducer = (state = initialState, action) => {
@@ -7,6 +7,11 @@ const dialogReducer = (state = initialState, action) => {
       return {
         ...state,
         openDialog: action.payload.openDialog,
+      };
+    case 'SET_CREDITS':
+      return {
+        ...state,
+        openCredits: action.payload.credits,
       };
     default:
       return state;
