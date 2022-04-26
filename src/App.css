@@ -9,7 +9,7 @@ input:focus {
 }
 
 .morning {
-  background: url('./assets/bg-images/01-Morning-1080.jpg');
+  background: url('./assets/bg-images/01-Morning.avif');
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -17,7 +17,7 @@ input:focus {
 }
 
 .day {
-  background: url('./assets/bg-images/02-Day-1080.jpg');
+  background: url('./assets/bg-images/02-Day.avif');
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -25,7 +25,7 @@ input:focus {
 }
 
 .sunset {
-  background: url('./assets/bg-images/03-Sunset-1080.jpg');
+  background: url('./assets/bg-images/03-Sunset.avif');
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -33,7 +33,7 @@ input:focus {
 }
 
 .night {
-  background: url('./assets/bg-images/04-Night-1080.jpg');
+  background: url('./assets/bg-images/04-Night.avif');
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -41,7 +41,7 @@ input:focus {
 }
 
 .error {
-  background: url('./assets/bg-images/404-1080.jpg');
+  background: url('./assets/bg-images/404.avif');
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;

@@ -12,6 +12,10 @@
   opacity: none;
 }
 
+.logo {
+  align-self: center;
+}
+
 .locationIcon {
   transition: 0.3s ease-out;
 }

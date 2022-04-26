@@ -4,13 +4,12 @@ export const getWeather = () => (dispatch) => {
     .then((res) => res.json())
     .then(
       (result) => {
-        // eslint-disable-next-line no-unused-expressions
         dispatch({
           type: 'GET_WEATHER',
           payload: {
             apiData: result,
           },
-        }) && dispatch({
+        }); dispatch({
           type: 'SET_LOADER',
           payload: {
             loader: true,

@@ -56,7 +56,15 @@ function SearchForm() {
               })}
             />
           </Tooltip>
-          {isMobile ? null : <img src={textLogo} alt="textLogo" className="logo" />}
+          {isMobile ? null : (
+            <img
+              src={textLogo}
+              width="128"
+              height="19"
+              alt="textLogo"
+              className="logo"
+            />
+          )}
         </Stack>
       </Grid>
       {isMobile ? null : (

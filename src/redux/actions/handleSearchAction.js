@@ -2,7 +2,7 @@
 // eslint-disable-next-line import/prefer-default-export
 export const handleSearch = (props) => (dispatch) => {
   if (props) {
-    fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${props}&limit=5&appid=101c2615b3959ce818ab88818bcc4b45`)
+    fetch(`https://api.openweathermap.org/geo/1.0/direct?q=${props}&limit=5&appid=101c2615b3959ce818ab88818bcc4b45`)
       .then((res) => res.json())
       .then((result) => {
         result.length >= 1
