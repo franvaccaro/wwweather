@@ -1,12 +1,12 @@
 // eslint-disable-next-line import/prefer-default-export
-export const getUserWeather = (props) => (dispatch) => {
+export const searchWeather = (props) => (dispatch) => {
   dispatch({
     type: 'SET_LOADER',
     payload: {
       loader: false,
     },
   });
-  fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${props.lat}&lon=${props.long}&exclude=minutely,hourly,alerts&units=metric&appid=101c2615b3959ce818ab88818bcc4b45`)
+  fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${props.lat}&lon=${props.lon}&exclude=minutely,hourly,alerts&units=metric&appid=101c2615b3959ce818ab88818bcc4b45`)
     .then((res) => res.json())
     .then(
       (result) => {
@@ -14,16 +14,25 @@ export const getUserWeather = (props) => (dispatch) => {
           type: 'GET_WEATHER',
           payload: {
             apiData: result,
+            cityName: `${props.name}, ${props.country}`,
           },
-        }); dispatch({
+        });
+        dispatch({
           type: 'SET_LOADER',
           payload: {
             loader: true,
           },
-        }); dispatch({
+        });
+        dispatch({
           type: 'SET_ERROR',
           payload: {
             notFound: false,
+          },
+        });
+        dispatch({
+          type: 'SET_DIALOG',
+          payload: {
+            openDialog: false,
           },
         });
       },

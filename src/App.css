@@ -9,29 +9,41 @@ input:focus {
 }
 
 .morning {
-  background: url('./assets/bg-images/01-Morning-1080.jpg');
+  background: url('./assets/bg-images/01-Morning.avif');
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
+  background-position: center center;
 }
 
 .day {
-  background: url('./assets/bg-images/02-Day-1080.jpg');
+  background: url('./assets/bg-images/02-Day.avif');
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
+  background-position: center center;
 }
 
 .sunset {
-  background: url('./assets/bg-images/03-Sunset-1080.jpg');
+  background: url('./assets/bg-images/03-Sunset.avif');
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
+  background-position: center center;
 }
 
 .night {
-  background: url('./assets/bg-images/04-Night-1080.jpg');
+  background: url('./assets/bg-images/04-Night.avif');
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
+  background-position: center center;
+}
+
+.error {
+  background: url('./assets/bg-images/404.avif');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center center;
 }

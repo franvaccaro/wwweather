@@ -12,6 +12,10 @@
   opacity: none;
 }
 
+.logo {
+  align-self: center;
+}
+
 .locationIcon {
   transition: 0.3s ease-out;
 }
@@ -74,6 +78,66 @@
   color: #cccbcb;
 }
 
+/* Dialog Styles */
+
+.dialogContainer {
+  padding: 30px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.564) 100%);
+  backdrop-filter: blur(50px);
+  border-radius: 20px;
+}
+
+.dialogTitle {
+  display: block;
+  padding: 20px;
+  font-family: 'Product Sans', sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.1em;
+  color: #fff;
+}
+
+.dialogList {
+  width: 250px;
+  font-family: 'Product Sans', sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  letter-spacing: 0.1em;
+  color: #FFFFFF;
+}
+
+.chevron {
+  align-self: center;
+  padding-left: 30px;
+  color: #FFA900;
+  border-radius: 1px;
+}
+
+/* Credits Styles */
+
+.creditsContainer {
+  backdrop-filter: blur(50px);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.564) 100%);
+  border-radius: 20px;
+  align-items: center;
+}
+
+.creditsTitle {
+  font-weight: 700;
+  font-size: 18px;
+  letter-spacing: 0.5px;
+  color: #FFFFFF;
+}
+
+.creditsInfo {
+  letter-spacing: 0.5px;
+  color: #E7E7E7;
+}
+
+/* -------------------------- */
+
 @media only screen and (max-width: 600px) {
   .logo {
     transform: scale(0.7);
@@ -90,17 +154,40 @@
   }
 
   .inputField {
-    width: 280px;
+    width: 228px;
     padding-left: 8%;
     font-size: 14px;
   }
 
   .searchIcon {
     margin-left: -50px;
-    transform: scale(0.7);
+    transform: scale(0.8);
   }
 
   ::placeholder {
     font-size: 14px;
+  }
+
+  .locationIcon {
+    transition: none;
+  }
+
+  .locationIcon:hover {
+    transform: scale(1.2);
+  }
+
+}
+
+@media only screen and (max-width: 958px) {
+  .locationIcon {
+    margin-top: 5px;
+    padding-right: 15px;
+    padding-left: 5px;
+    transition: none;
+    transform: scale(1.2);
+  }
+
+  .locationIcon:hover {
+    transform: scale(1.2) rotate(0deg);
   }
 }
