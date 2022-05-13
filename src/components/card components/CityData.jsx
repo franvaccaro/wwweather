@@ -166,12 +166,12 @@ function CityData() {
           <Skeleton animation="pulse" width={255} sx={{ bgcolor: 'grey.900' }} />
         </Typography>
       )}
-      <Grid container direction="row" justifyContent="space-between" alignItems="center">
-        <Grid item className="temperature">
+      <Grid container direction="row" justifyContent="flex-start" alignItems="center">
+        <Grid item className="temperature" sx={{ pr: 1 }}>
           {Math.round(apiData.current.temp)}
           °
         </Grid>
-        <Grid item xs={5}>
+        <Grid item xs={4}>
           {weatherIcon ? <img src={weatherIcon} title={iconTitle} alt="Weather icon" className="main-icon" />
             : (
               <Skeleton
